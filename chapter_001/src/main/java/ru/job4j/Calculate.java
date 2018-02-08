@@ -10,21 +10,22 @@ package ru.job4j;
 
 public class Calculate {
 
-/**
+    /**
      * Main.
+     *
      * @param args - args.
      */
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
-             System.out.println("Hello world");
-}
+        System.out.println("Hello world");
+    }
 
 /**
-     * Method echo.
-     * @param echo.
-     * @return Echo plus.
-     */
+ * Method echo.
+ * @param name andreybannikov
+ * @return Echo plus.
+ */
 
 public String echo(String name) {
         return "Echo, echo, echo : " + name;
