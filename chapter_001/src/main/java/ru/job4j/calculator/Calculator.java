@@ -2,28 +2,24 @@ package ru.job4j.calculator;
 
 
 /**
-* Класс Калькулятор (Calculator)
+* App Calculator
 * @author Andrey Bannikov (andrewnnov@yandex.ru)
 * @version $Id$
 * @since 0.1
 */
 
-
 public class Calculator {
 
 /**
- *результат операции
+ *the result of operation
 */ 
-
 private double result;
-
   
 /**
- * Method add(Метод сложения двух значений).
- * @param 2а числа
- * @return метод ничего не возвращает.
+ * Method add
+ * @param 2 number
+ * @return not return.
 */
-
   public void add(double first, double second) {
 
   this.result = first + second;
@@ -31,27 +27,21 @@ private double result;
   }
 
 /**
- * Method sub(Метод вычитания двух значений).
- * @param 2а числа
- * @return метод ничего не возвращает.
+ * Method sub.
+ * @param 2 number
+ * @return not return.
 */
-
-
-
   public void sub(double first, double second) {
 
   this.result = first - second;
 
   }
 
-
 /**
- * Method div(Метод деления двух значений).
- * @param 2а числа
- * @return метод ничего не возвращает.
+ * Method div
+ * @param 2number
+ * @return nut return.
 */
-
-
   public void div(double first, double second) {
 
   this.result = first / second;
@@ -59,12 +49,10 @@ private double result;
   }
 
 /**
- * Method mult(Метод умножения двух значений).
- * @param 2а числа
- * @return метод ничего не возвращает.
+ * Method multiplication.
+ * @param 2number
+ * @return nut return
 */
-
-
    public void mult(double first, double second) {
 
    this.result = first * second;
@@ -72,20 +60,14 @@ private double result;
    }
 
 /**
- * Method getResult(метод возвращает полученное значение).
- * @param значение операции
- * @return возвращает значение одной из математических операций.
+ * Method getResult.
+ * @param 
+ * @return return double result.
 */
-
-
   public double getResult() {
      
     return this.result;
 
-
   }
-
-
-
 
 }

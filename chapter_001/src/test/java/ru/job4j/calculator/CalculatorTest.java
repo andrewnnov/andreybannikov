@@ -11,15 +11,12 @@ import static org.junit.Assert.assertThat;
 * @version $Id$
 * @since 0.1
 */
-
 public class CalculatorTest {
 
 /**
-* Тест суммы
+* Test Addition
 */ 
 @Test
-
-
   public void whenAddOnePlusOneThenTwo() {
 
     Calculator calc = new Calculator();
@@ -31,7 +28,7 @@ public class CalculatorTest {
     }
 
 /**
-* Тест разности
+* Тест sub
 */ 
   @Test
   public void whenSubtractOneMinusOneThenZero() {
@@ -45,9 +42,8 @@ public class CalculatorTest {
     }
 
 /**
-* Тест деления
+* Тест division
 */ 
-
    @Test
   public void whenDivOneDivOneThenOne() {
 
@@ -59,9 +55,8 @@ public class CalculatorTest {
 
     }
 
-
 /**
-* Тест умножения
+* Тест multiplication
 */ 
    @Test
   public void whenMultiplOneMultOneThenOne() {
@@ -73,13 +68,5 @@ public class CalculatorTest {
     assertThat(result, is(expected));   
 
     }
-
-
-
-
-
-
-
-
 
 }
