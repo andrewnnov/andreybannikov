@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 /**
  * @author andreybannikov
  * @version $Id$
