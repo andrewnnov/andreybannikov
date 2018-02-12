@@ -14,8 +14,8 @@ public class MaxTest {
 
     public void WhenFirstMoreSecond(){
         Max maximum = new Max();
-        int result = maximum.maxOfTwoNumber(1,2);
-        assertThat(result, is(2));
+        int result = maximum.maxOfThreeNumber(1,-1, 0);
+        assertThat(result, is(1));
     }
 
 
