@@ -2,7 +2,7 @@ package ru.job4j.loop;
 
 public class Factorial {
     /**
-     * Calculate factorial
+     * Calculate factorial/
      * @param n natural number and null
      * @return factorial n
      */
