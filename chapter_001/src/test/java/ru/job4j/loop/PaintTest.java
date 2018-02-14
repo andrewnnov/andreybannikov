@@ -4,7 +4,11 @@ import org.junit.Test;
 import java.util.StringJoiner;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
-
+/**
+ * @author andreybannikov(andrewnnov@yandex.ru)
+ * @version 1.0
+ * @since 0.1
+ */
 public class PaintTest {
 
     @Test
@@ -37,7 +41,6 @@ public class PaintTest {
                 )
         );
     }
-
 
     @Test
     public void whenPyramid4() {
