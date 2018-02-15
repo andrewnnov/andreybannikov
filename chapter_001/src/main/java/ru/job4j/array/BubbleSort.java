@@ -23,9 +23,4 @@ public class BubbleSort {
         }
         return array;
     }
-
-
-
-
-
 }
