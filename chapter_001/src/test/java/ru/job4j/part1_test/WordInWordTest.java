@@ -45,5 +45,4 @@ public class WordInWordTest {
         assertThat(result, is(true));
     }
 
-
 }

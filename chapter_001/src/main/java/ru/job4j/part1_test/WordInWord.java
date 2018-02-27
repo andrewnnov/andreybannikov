@@ -20,29 +20,19 @@ public class WordInWord {
          * array sub
          */
         char[] subArray = sub.toCharArray();
-        /**
-         * variable equal to the length of the array sub
-         */
-        int number = subArray.length;
+
+        boolean result = false;
+
         if(subArray.length <= originArray.length){
-            for(int i = 0; i < subArray.length;){
-                for (int j = 0; j < originArray.length;){
-                    if(subArray[i] == originArray[j]){
-                        i++;
-                        j++;
-                        number--;
-                    } else{
-                        j++;
-                        if(j == originArray.length){
-                            number = -1;
-                        }
-                    }
+            for (int i = 0; i <originArray.length; i++){
+                for(int j = 0; j < subArray.length; j++){
+                    if(originArray[i+j] == subArray[j]){
+                       result = true;
+                       i++;
+                    } else break;
                 }
-                break;
             }
-        } else {
-            number = -1;
         }
-        return number == 0 ? true : false;
+        return result;
     }
 }
