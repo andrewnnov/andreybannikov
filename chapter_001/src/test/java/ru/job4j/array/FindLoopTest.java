@@ -25,10 +25,4 @@ public class FindLoopTest {
         int resultFind = findLoop.indexOf(data, 4);
         assertThat(resultFind, is(-1));
     }
-
-
-
-
-
-
 }

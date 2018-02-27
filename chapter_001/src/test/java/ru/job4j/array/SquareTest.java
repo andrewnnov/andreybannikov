@@ -25,6 +25,4 @@ public class SquareTest {
         int[] expectArray = {1, 4, 9, 16, 25};
         assertThat(resultArray, is(expectArray));
     }
-
-
 }
