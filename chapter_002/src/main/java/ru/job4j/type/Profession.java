@@ -18,4 +18,10 @@ public class Profession {
     public int getAgeOfExp() {
         return ageOfExp;
     }
+
+    public Profession(String name) {
+        this.name = name;
+    }
 }
+
+
