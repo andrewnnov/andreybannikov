@@ -71,13 +71,16 @@ public class Tracker {
      */
     public Item[] findByName(String key){
         Item [] result = new Item[this.position];
+
         int newPosition = 0;
         for(int index = 0; index < position; index++){
             if(items[index] != null && items[index].getName().equals(key)){
                 result[newPosition++] = this.items[index];
             }
-        }
-        return result;
+    }
+        Item [] newCut = new Item[newPosition];
+        System.arraycopy(result, 0, newCut, 0, newCut.length);
+        return newCut;
     }
     /**
      * Getting item for id

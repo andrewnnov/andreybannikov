@@ -67,7 +67,7 @@ public class TrackerTest {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-        Item [] expected = {item, item1, null, null};
+        Item [] expected = {item, item1};
         assertThat(tracker.findByName("Test"), is(expected));
     }
     @Test
