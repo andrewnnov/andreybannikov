@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.start.StartUI;
+
 public class StartUITest {
 
     public static void main(String[] args) {

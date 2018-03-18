@@ -9,7 +9,7 @@ public class Tracker {
     private Item[] items = new Item[100];
 
     private int position = 0;
-    private static Random RN = new Random();
+    private static Random rnRandom = new Random();
 
     public void setItems(Item[] items) {
         this.items = items;
@@ -20,7 +20,7 @@ public class Tracker {
      * @param item
      * @return item
      */
-    public Item add(Item item){
+    public Item add(Item item) {
         item.setId(this.generatedId());
         this.items[this.position++] = item;
         return item;
@@ -30,9 +30,9 @@ public class Tracker {
      * @param id
      * @param item
      */
-    public void replace(String id, Item item){
-        for(int index = 0; index < items.length; index++){
-            if(items[index].getId() != null && items[index].getId().equals(id)){
+    public void replace(String id, Item item) {
+        for (int index = 0; index < items.length; index++) {
+            if (items[index].getId() != null && items[index].getId().equals(id)) {
                 items[index] = item;
                 break;
             }
@@ -42,12 +42,12 @@ public class Tracker {
      * Delete item
      * @param id
      */
-    public void delete(String id){
+    public void delete(String id) {
 
-        Item [] itemDelete = new Item [this.position];
-        for(int index = 0; index < position; index++){
-            if(items[index].getId() != null && items[index].getId().equals(id) ){
-                System.arraycopy(items, index +1, items, index, position - index);
+        Item[] itemDelete = new Item[this.position];
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId() != null && items[index].getId().equals(id)) {
+                System.arraycopy(items, index + 1, items, index, position - index);
                 items[position - 1] = null;
                 position--;
             }
@@ -57,9 +57,9 @@ public class Tracker {
      * Getting a list all items
      * @return
      */
-    public Item[] findAll(){
-        Item [] result = new Item[this.position];
-        for(int index = 0; index < this.position; index++){
+    public Item[] findAll() {
+        Item[] result = new Item[this.position];
+        for (int index = 0; index < this.position; index++) {
             result[index] = this.items[index];
         }
         return result;
@@ -69,16 +69,16 @@ public class Tracker {
      * @param key
      * @return
      */
-    public Item[] findByName(String key){
-        Item [] result = new Item[this.position];
+    public Item[] findByName(String key) {
+        Item[] result = new Item[this.position];
 
         int newPosition = 0;
-        for(int index = 0; index < position; index++){
-            if(items[index] != null && items[index].getName().equals(key)){
+        for (int index = 0; index < position; index++) {
+            if (items[index] != null && items[index].getName().equals(key)) {
                 result[newPosition++] = this.items[index];
             }
     }
-        Item [] newCut = new Item[newPosition];
+        Item[] newCut = new Item[newPosition];
         System.arraycopy(result, 0, newCut, 0, newCut.length);
         return newCut;
     }
@@ -87,10 +87,10 @@ public class Tracker {
      * @param id
      * @return
      */
-    public Item findById(String id){
+    public Item findById(String id) {
         Item result = null;
-        for(Item item : items){
-            if(item != null && item.getId().equals(id)){
+        for (Item item : items) {
+            if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
             }
@@ -98,9 +98,9 @@ public class Tracker {
         return result;
     }
 
-    private String generatedId(){
+    private String generatedId() {
 
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+        return String.valueOf(System.currentTimeMillis() + rnRandom.nextInt());
     }
 
 }

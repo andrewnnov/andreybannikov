@@ -6,7 +6,7 @@ public class Teacher extends Profession {
         super(name);
     }
 
-    public void learn(Student student){
+    public void learn(Student student) {
 
         System.out.println("Учитель " + getName().toString() + " учит студента " +  student.getName().toString());
 

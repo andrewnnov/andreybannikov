@@ -1,7 +1,10 @@
-package ru.job4j.tracker;
+package ru.job4j.start;
 
 
 import ru.job4j.item.Item;
+import ru.job4j.tracker.ConsoleInput;
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Tracker;
 
 /**
  * @version$Id&
@@ -40,25 +43,25 @@ public class StartUI {
     /**
      * main program cycle
      */
-    public void init(){
+    public void init() {
         boolean exit = false;
-        while (!exit){
+        while (!exit) {
             this.showMenu();
             String answer = this.input.ask("Введите пункт меню : ");
-            if(ADD.equals(answer)){
+            if (ADD.equals(answer)) {
                 //добавление заявки вынесено в отдельный метод
                 this.createItem();
-            }else if(SHOW_ALL_ITEMS.equals(answer)){
+            } else if (SHOW_ALL_ITEMS.equals(answer)) {
                 this.showAllItems();
-            }else if(EDIT_ITEM.equals(answer)){
+            } else if (EDIT_ITEM.equals(answer)) {
                this.editItem();
-            }else if(DELETE_ITEM.equals(answer)){
+            } else if (DELETE_ITEM.equals(answer)) {
                 this.deleteItem();
-            }else if (FIND_ITEM_BY_ID.equals(answer)){
+            } else if (FIND_ITEM_BY_ID.equals(answer)) {
                 this.findItemById();
-            }else if(FIND_ITEM_BY_NAME.equals(answer)){
+            } else if (FIND_ITEM_BY_NAME.equals(answer)) {
                 this.findItemByName();
-            }else if(EXIT_PROGRAM.equals(answer)){
+            } else if (EXIT_PROGRAM.equals(answer)) {
                 exit = true;
             }
         }

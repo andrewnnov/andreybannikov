@@ -6,7 +6,7 @@ public class Doctor extends Profession {
         super(name);
     }
 
-    public void treat(Patient patient){
+    public void treat(Patient patient) {
 
         System.out.println("Доктор " + getName().toString() + "лечит пациента " +  patient.getName().toString());
 

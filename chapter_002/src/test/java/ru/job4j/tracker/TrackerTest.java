@@ -9,18 +9,18 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1","testDescription", 123L);
+        Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
         assertThat(tracker.findAll()[0], is(item));
     }
     @Test
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
-        Item previous = new Item("test1","testDescription", 123L);
+        Item previous = new Item("test1", "testDescription", 123L);
         // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
         tracker.add(previous);
         // Создаем новую заявку.
-        Item next = new Item("test2","testDescription2", 123L);
+        Item next = new Item("test2", "testDescription2", 123L);
         // Проставляем старый id из previous, который был сгенерирован выше.
         next.setId(previous.getId());
         // Обновляем заявку в трекере.
@@ -29,7 +29,7 @@ public class TrackerTest {
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
     @Test
-    public void whenDeleteOneElementThenMoveAllElementLeft(){
+    public void whenDeleteOneElementThenMoveAllElementLeft() {
         Tracker tracker = new Tracker();
         Item item = new Item("Test", "testDescription", 123L);
         Item item1 = new Item("Test1", "testDescription1", 123L);
@@ -44,7 +44,7 @@ public class TrackerTest {
         assertThat(tracker.findAll()[2].getName(), is("Test3"));
     }
     @Test
-    public void whenReturnItemsNoNull(){
+    public void whenReturnItemsNoNull() {
         Tracker tracker = new Tracker();
         Item item = new Item("Test", "testDescription", 123L);
         Item item1 = new Item("Test1", "testDescription1", 123L);
@@ -57,7 +57,7 @@ public class TrackerTest {
         assertThat(tracker.findAll().length, is(4));
     }
     @Test
-    public void whenFindNameReturnArrayNamed(){
+    public void whenFindNameReturnArrayNamed() {
         Tracker tracker = new Tracker();
         Item item = new Item("Test", "testDescription", 123L);
         Item item1 = new Item("Test", "testDescription1", 123L);
@@ -67,11 +67,11 @@ public class TrackerTest {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-        Item [] expected = {item, item1};
+        Item[] expected = {item, item1};
         assertThat(tracker.findByName("Test"), is(expected));
     }
     @Test
-    public void whenFindIdReturnItem(){
+    public void whenFindIdReturnItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("Test", "testDescription", 123L);
         Item item1 = new Item("Test", "testDescription1", 123L);
