@@ -62,4 +62,9 @@ public class Item {
         this.name = name;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "id заявки " + id + " Имя заявки " + name + " описание заявки " + description;
+    }
 }
