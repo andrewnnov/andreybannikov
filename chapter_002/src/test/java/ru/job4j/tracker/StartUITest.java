@@ -4,7 +4,6 @@ import org.junit.Test;
 import ru.job4j.item.Item;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import ru.job4j.item.Item;
 import ru.job4j.start.StartUI;
 
 public class StartUITest {
