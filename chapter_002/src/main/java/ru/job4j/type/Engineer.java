@@ -8,7 +8,7 @@ public class Engineer extends Profession {
 
     public void build(House house) {
 
-        System.out.println("Инженер " + getName().toString() + "строит " +  house.getName().toString());
+        System.out.println("Инженер " + getName() + "строит " + house.getName());
 
     }
 }
