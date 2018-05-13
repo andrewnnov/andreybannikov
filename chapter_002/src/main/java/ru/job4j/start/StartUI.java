@@ -2,16 +2,16 @@ package ru.job4j.start;
 
 
 import ru.job4j.item.Item;
-import ru.job4j.tracker.ConsoleInput;
-import ru.job4j.tracker.Input;
-import ru.job4j.tracker.MenuTracker;
-import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.*;
 
 /**
  * @version$Id&
  * @since 0.1
  */
 public class StartUI {
+
+    //в нашей программе сделать чтобы эти значения получать из меню
+    private int[] range =  new int[]{1,2,3,4};
     /**
      * Получение данных от пользователя
      */
@@ -42,12 +42,12 @@ public class StartUI {
         menuTracker.fillActions();
         do {
             menuTracker.show();
-            int key = Integer.valueOf(input.ask("Select:"));
-            menuTracker.select(key);
+           // int key = Integer.valueOf(input.ask("Select:"));
+            menuTracker.select(input.ask("select", range));
         } while (!"y".equals(this.input.ask("Exit? (y)")));
     }
 
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
