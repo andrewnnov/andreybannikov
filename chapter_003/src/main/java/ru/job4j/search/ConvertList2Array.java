@@ -22,7 +22,7 @@ public class ConvertList2Array {
                if(listIndex < list.size()){
                    array[i][j] = list.get(listIndex++);
                } else {
-                   array[i][j] = 0;
+                   break;
                }
             }
         }

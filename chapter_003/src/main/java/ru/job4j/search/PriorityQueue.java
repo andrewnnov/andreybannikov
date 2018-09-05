@@ -13,17 +13,19 @@ public class PriorityQueue {
      */
     public void put(Task task){
 
-        if(tasks.isEmpty()){
-            tasks.add(0, task);
-        } else {
-            for (Task el: tasks) {
-                if(el.getPriority() > task.getPriority()){
-                    int numberOfElement = tasks.indexOf(el);
-                    tasks.add(numberOfElement, task);
-                    break;
-                }
-            }
-        }
+
+
+//        if(tasks.isEmpty()){
+//            tasks.add(0, task);
+//        } else {
+//            for (Task el: tasks) {
+//                if(el.getPriority() > task.getPriority()){
+//                    int numberOfElement = tasks.indexOf(el);
+//                    tasks.add(numberOfElement, task);
+//                    break;
+//                }
+//            }
+//        }
     }
 
     public Task take(){
