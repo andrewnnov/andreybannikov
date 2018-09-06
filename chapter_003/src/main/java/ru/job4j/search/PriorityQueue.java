@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
-
     /*
      *Метод должен вставлятьв нужную позицию элемент
      * Позиция определяется по полю приоритет
@@ -12,7 +11,6 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-
         if (tasks.isEmpty()) {
             tasks.add(task);
         } else {
@@ -29,12 +27,10 @@ public class PriorityQueue {
             }
         }
     }
-
     public Task take() {
         return this.tasks.poll();
     }
 }
-
 //
 //        if (!tasks.isEmpty()){
 //            int low = 0;
