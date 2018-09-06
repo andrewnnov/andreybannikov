@@ -14,17 +14,22 @@ import static org.junit.Assert.assertThat;
 
 public class PaintTest {
 
+    //получаем ссылку на стандартыный вывод в консольсоль
     private final PrintStream stdout = System.out;
 
+    //создаем буфер для хранения вывода
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before
     public  void loadOutput() {
+        //замена стандартного вывода на вывод в память для тестирования
         System.setOut(new PrintStream(this.out));
     }
 
     @After
     public void backOutput() {
+
+        //возвращаем обратно стандартный вывод в консоль
         System.setOut(this.stdout);
     }
 
@@ -41,7 +46,7 @@ public class PaintTest {
                         .append(System.lineSeparator())
                         .toString()
                 ));
-        System.setOut(stdout);
+
     }
 
     @Test
@@ -57,6 +62,6 @@ public class PaintTest {
                                 .append(System.lineSeparator())
                                 .toString()
                 ));
-        System.setOut(stdout);
+
     }
 }
