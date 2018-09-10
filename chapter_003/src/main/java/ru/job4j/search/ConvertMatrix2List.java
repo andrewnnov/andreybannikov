@@ -9,14 +9,12 @@ public class ConvertMatrix2List {
     /*
     covert array2d in ArrayList
      */
-    public List<Integer> toList(int[][] array){
+    public List<Integer> toList(int[][] array) {
         List<Integer> list = new ArrayList<>();
-
         int row = array.length;
         int cells = array[0].length;
-
-        for(int i = 0; i < row; i++ ){
-            for (int j = 0; j < cells; j++){
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < cells; j++) {
                 list.add(array[i][j]);
             }
         }
@@ -24,18 +22,33 @@ public class ConvertMatrix2List {
     }
 
     /*
-    method convert list <int[]> to List<Integer>
+    method convertListArrayToListInteger list <int[]> to List<Integer>
      */
-    public List<Integer> convert(List<int[]> list){
+    public List<Integer> convertListArrayToListInteger(List<int[]> list) {
         //list for add element of input array
-        List<Integer> listArrays = new ArrayList<>();
+        List<Integer> listInteger = new ArrayList<>();
         //iteration array
-        for(int[] el: list){
+        for (int[] elementOfListArray: list) {
             //iteration element of array
-            for(int j : el){
-                listArrays.add(j);
+            for (int elementOfArray : elementOfListArray) {
+                listInteger.add(elementOfArray);
             }
         }
-        return listArrays;
+        return listInteger;
+    }
+
+    public List<Integer> convertList2dArrayToListInteger(List<int[][]> list) {
+        //list for add element of input array
+        List<Integer> listInteger = new ArrayList<>();
+        //iteration array
+        for (int[][] elementOfList2DArray: list) {
+            //iteration element of array
+            for (int[] elementOfListArray : elementOfList2DArray) {
+                for (int elementOfArray: elementOfListArray) {
+                    listInteger.add(elementOfArray);
+                }
+            }
+        }
+        return listInteger;
     }
 }
