@@ -22,4 +22,20 @@ public class ConvertMatrix2List {
         }
         return list;
     }
+
+    /*
+    method convert list <int[]> to List<Integer>
+     */
+    public List<Integer> convert(List<int[]> list){
+        //list for add element of input array
+        List<Integer> listArrays = new ArrayList<>();
+        //iteration array
+        for(int[] el: list){
+            //iteration element of array
+            for(int j : el){
+                listArrays.add(j);
+            }
+        }
+        return listArrays;
+    }
 }
