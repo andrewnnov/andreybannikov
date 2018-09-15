@@ -33,4 +33,60 @@ public class TrackerTest {
         Item[] resultItem = tracker.getAllItems();
         assertThat(resultItem, is(allItem));
     }
+
+    @Test
+    public void whenFindElementForIdThenReplaysThisElement() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1", "desc1", 123L);
+        Item item2 = new Item("test2", "desc2", 123L);
+        Item item3 = new Item("test3", "desc3", 123L);
+
+        tracker.addNewItem(item1);
+        tracker.addNewItem(item2);
+        tracker.addNewItem(item3);
+
+        String id = item2.getIdOfItem();
+
+        Item itemReplays = new Item("nameReplays", "descRaplays", 123l);
+
+        tracker.replaceItem(id, itemReplays);
+
+        assertThat(tracker.findById(id).getName(), is("nameReplays"));
+    }
+
+    @Test
+    public void whenFindItemThenReturnItemsNames() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test", "desc1", 123L);
+        Item item2 = new Item("test", "desc2", 123L);
+        Item item3 = new Item("test3", "desc3", 123L);
+
+        tracker.addNewItem(item1);
+        tracker.addNewItem(item2);
+        tracker.addNewItem(item3);
+
+        Item[] expect = {item1, item2};
+        assertThat(tracker.findItemByName("test"), is(expect));
+    }
+
+    @Test
+    public void whenDeleteItemThenItemMinusOne() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1", "desc1", 123L);
+        Item item2 = new Item("test2", "desc2", 123L);
+        Item item3 = new Item("test3", "desc3", 123L);
+
+        tracker.addNewItem(item1);
+        tracker.addNewItem(item2);
+        tracker.addNewItem(item3);
+
+        String idItem2 = item2.getIdOfItem();
+        tracker.delete(idItem2);
+        Item[] expect = {item1, item3};
+        assertThat(tracker.getAllItems(), is(expect));
+    }
+
+
+
+
 }
