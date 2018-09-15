@@ -16,6 +16,11 @@ public class Item {
         this.create = create;
     }
 
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,5 +39,10 @@ public class Item {
 
     public void setIdOfItem(String idOfItem) {
         this.idOfItem = idOfItem;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
