@@ -43,10 +43,10 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("-----Добавление новой заявки-----");
-            String name = this.input.ask("Введите имя заявки: ");
-            String desc = this.input.ask("Введите описание заявки: ");
+            String name = input.ask("Введите имя заявки: ");
+            String desc = input.ask("Введите описание заявки: ");
             Item item = new Item(name, desc);
-            this.tracker.addNewItem(item);
+            tracker.addNewItem(item);
             System.out.println("-----Новая заявка с Id: " + item.getIdOfItem() + " создана.");
 
         }
@@ -67,13 +67,13 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("-----Поиск заявки по Id-----");
-            String idOfItem = this.input.ask("Введите id заявки");
-            System.out.println("-----Искомая заявка: " + this.tracker.findById(idOfItem).getIdOfItem() + this.tracker.findById(idOfItem).getName() + this.tracker.findById(idOfItem).getDescription());
+            String idOfItem = input.ask("Введите id заявки");
+            System.out.println("-----Искомая заявка: " + tracker.findById(idOfItem).getIdOfItem() + tracker.findById(idOfItem).getName() + tracker.findById(idOfItem).getDescription());
         }
 
         @Override
         public String info() {
-            return String.format("%s. %s", this.key(), "Find item by id");;
+            return String.format("%s. %s", this.key(), "Find item by id");
         }
     }
 
@@ -87,7 +87,7 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("-----Поиск заявки по имени-----");
-            String nameOfItem = this.input.ask("Введите имя заявки");
+            String nameOfItem = input.ask("Введите имя заявки");
             for (Item item: tracker.findItemByName(nameOfItem)) {
                 System.out.println(item.getIdOfItem() + item.getName());
             }
@@ -132,9 +132,9 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("-----Редактирование заявки по Id-----");
-            String idOfItem = this.input.ask("Введите id заявки");
-            String name = this.input.ask("Введите имя новой заявки :");
-            String desc = this.input.ask("Введите описание новой заявки :");
+            String idOfItem = input.ask("Введите id заявки");
+            String name = input.ask("Введите имя новой заявки :");
+            String desc = input.ask("Введите описание новой заявки :");
             Item item = new Item(name, desc);
             item.setIdOfItem(idOfItem);
             tracker.replaceItem(idOfItem, item);
@@ -156,7 +156,7 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------Удаление заявки---------");
-            String idOfItem = this.input.ask("Введите id удаляемой заявки: ");
+            String idOfItem = input.ask("Введите id удаляемой заявки: ");
             tracker.delete(idOfItem);
             System.out.println("Заявка " + idOfItem + " удалена");
         }
