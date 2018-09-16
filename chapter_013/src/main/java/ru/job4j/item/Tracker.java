@@ -101,11 +101,13 @@ public class Tracker {
          return cutItem;
     }
 
+
+
     public void delete(String id){
         Item[] deleteItem = new Item[position - 1];
         //index when id equals id
         int findIndexOfId;
-        for (int i =0; i < position; i++) {
+        for(int i =0; i < position; i++) {
             if (items[i] != null && items[i].getIdOfItem().equals(id)){
                 findIndexOfId = i;
                 System.arraycopy(items, findIndexOfId + 1, items, findIndexOfId, position - findIndexOfId);
@@ -114,5 +116,6 @@ public class Tracker {
                 break;
             }
         }
+
     }
 }
