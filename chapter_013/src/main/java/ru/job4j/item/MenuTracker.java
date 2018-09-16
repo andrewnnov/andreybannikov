@@ -112,7 +112,6 @@ public class MenuTracker {
             for (Item item: tracker.getAllItems()) {
                 System.out.println(item.getIdOfItem() + " " +  item.getName() + " " + item.getDescription());
             }
-
         }
 
         @Override
@@ -166,8 +165,4 @@ public class MenuTracker {
             return String.format("%s. %s", this.key(), "Delete item.");
         }
     }
-
-
-
-
 }
