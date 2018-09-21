@@ -33,4 +33,26 @@ public class SortUserTest {
         assertThat(sortUser.sort(listUser), is(userSet));
 
     }
+
+    @Test
+    public void whenLengthNameThenSortListUser() {
+        SortUser sortUser = new SortUser();
+
+        List<User> sortLengthName = new ArrayList<>();
+        sortLengthName.add(new User("Mar", 34));
+        sortLengthName.add(new User("Vitaliy", 7));
+        sortLengthName.add(new User("Andrew", 36));
+        System.out.println(sortLengthName);
+
+        List<User> expectUserLength = new ArrayList<>();
+        expectUserLength.add(new User("Mar", 34));
+        expectUserLength.add(new User("Andrew", 36));
+        expectUserLength.add(new User("Vitaliy", 7));
+        System.out.println(expectUserLength);
+        System.out.println(sortUser.sortNameLength(sortLengthName));
+
+
+        assertThat(sortUser.sortNameLength(sortLengthName), is(expectUserLength));
+
+    }
 }
