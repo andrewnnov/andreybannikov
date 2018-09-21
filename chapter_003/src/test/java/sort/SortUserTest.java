@@ -2,10 +2,7 @@ package sort;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -38,21 +35,39 @@ public class SortUserTest {
     public void whenLengthNameThenSortListUser() {
         SortUser sortUser = new SortUser();
 
+        User user1 = new User("Andrew", 36);
+        User user2 = new User("Mar", 34);
+
         List<User> sortLengthName = new ArrayList<>();
-        sortLengthName.add(new User("Mar", 34));
-        sortLengthName.add(new User("Vitaliy", 7));
-        sortLengthName.add(new User("Andrew", 36));
+        sortLengthName.add(user1);
+        sortLengthName.add(user2);
+
         System.out.println(sortLengthName);
 
-        List<User> expectUserLength = new ArrayList<>();
-        expectUserLength.add(new User("Mar", 34));
-        expectUserLength.add(new User("Andrew", 36));
-        expectUserLength.add(new User("Vitaliy", 7));
+        List<User> expectUserLength = Arrays.asList(user2, user1);
+
         System.out.println(expectUserLength);
         System.out.println(sortUser.sortNameLength(sortLengthName));
 
 
         assertThat(sortUser.sortNameLength(sortLengthName), is(expectUserLength));
+
+    }
+
+    @Test
+    public void whenOneElemenrMoretwoThenMinusOne() {
+
+        User user1 = new User("Andrew", 36);
+        User user2 = new User("Andrew", 34);
+
+        List<User> user = new ArrayList<>();
+        user.add(user1);
+        user.add(user2);
+
+        List<User> expectList = Arrays.asList(user2, user1);
+
+
+        assertThat(new SortUser().sortByAllFields(user),is(expectList) );
 
     }
 }
