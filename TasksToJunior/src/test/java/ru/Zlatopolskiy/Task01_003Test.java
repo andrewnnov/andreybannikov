@@ -15,7 +15,7 @@ public class Task01_003Test {
 
 
 
-        assertEquals(number.enterNumberFromKeyBoard(), 100);
+        assertEquals(100, number.enterNumberFromKeyBoard());
 
     }
 }

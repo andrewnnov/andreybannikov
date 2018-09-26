@@ -15,5 +15,6 @@ public class Task01_003 {
         int result = scanner.nextInt();
         scanner.close();
         return result;
+
     }
 }
