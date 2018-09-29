@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class UserConvert {
 
-    public HashMap<Integer, User> process(List<User> list){
+    public Map<Integer, User> process(List<User> list) {
 
-        HashMap<Integer, User> mapOfUserFromList = new HashMap<>();
+        Map<Integer, User> mapOfUserFromList = new HashMap<>();
 
         for (int i = 0; i < list.size(); i++) {
             mapOfUserFromList.put(i, list.get(i));

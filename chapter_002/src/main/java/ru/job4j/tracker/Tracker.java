@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Tracker {
 
-    private Item[] items = new Item[100];
+    private Item[] items = new Item[10];
 
     private int position = 0;
     private static Random rnRandom = new Random();
@@ -102,5 +102,7 @@ public class Tracker {
 
         return String.valueOf(System.currentTimeMillis() + rnRandom.nextInt());
     }
+
+
 
 }

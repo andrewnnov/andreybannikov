@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -18,7 +19,7 @@ public class UserConvertTest {
         listOfUser.add(new User(23, "Андрей", "Нижний Новгород"));
         listOfUser.add(new User(24, "Вася", "Волгоград"));
 
-        HashMap<Integer, User> resultMap = userConvert.process(listOfUser);
+       Map<Integer, User> resultMap = userConvert.process(listOfUser);
 
         HashMap<Integer, User> expectMap = new HashMap<>();
         expectMap.put(0, listOfUser.get(0));

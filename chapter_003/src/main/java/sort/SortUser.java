@@ -5,7 +5,6 @@ import java.util.*;
 public class SortUser {
 
     public Set<User> sort (List<User> list) {
-        Set<User> treeSetUser = new TreeSet<>();
         return new TreeSet<>(list);
     }
 

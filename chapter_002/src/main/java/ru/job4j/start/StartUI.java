@@ -11,7 +11,7 @@ import ru.job4j.tracker.*;
 public class StartUI {
 
     //в нашей программе сделать чтобы эти значения получать из меню
-    private int[] range =  new int[]{1,2,3,4};
+    private int[] range =  new int[]{0,1,2,3,4,5};
     /**
      * Получение данных от пользователя
      */
