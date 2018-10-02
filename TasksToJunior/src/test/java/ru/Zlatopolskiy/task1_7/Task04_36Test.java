@@ -19,9 +19,16 @@ public class Task04_36Test {
     }
 
     @Test
-    public void wheReceive0ThenRed() {
+    public void wheReceive0ThenGreen() {
         Task04_036 task = new Task04_036();
-        assertEquals("Red", task.determinationOfColor(0));
+        assertEquals("Green", task.determinationOfColor(0));
     }
+
+    @Test
+    public void wheReceive60ThenGreen() {
+        Task04_036 task = new Task04_036();
+        assertEquals("Green", task.determinationOfColor(60));
+    }
+
 
 }

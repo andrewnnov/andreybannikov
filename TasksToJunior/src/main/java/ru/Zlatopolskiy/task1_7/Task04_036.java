@@ -15,15 +15,14 @@ public class Task04_036 {
 
         String result = null;
 
-        int timeOfPedestrian = timeOfColor%5;
+        int timeForInterval = timeOfColor%5;
 
-        if(timeOfPedestrian <= 3 && timeOfPedestrian > 0) {
+        if(timeForInterval < 3 && timeForInterval >= 0) {
             result = "Green";
-
-        }if (timeOfPedestrian > 3 && timeOfPedestrian <= 5) {
+        }if (timeForInterval >= 3 && timeForInterval < 5) {
             result = "Red";
-        } if (timeOfPedestrian == 0) {
-            result = "Red";
+        } if (timeForInterval == 5) {
+            result = "Green";
         }
         return result;
     }
