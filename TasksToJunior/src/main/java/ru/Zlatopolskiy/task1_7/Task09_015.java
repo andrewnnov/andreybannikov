@@ -11,12 +11,6 @@ public class Task09_015 {
         int k = numberOfWord;
         char[] charArray = incomingWorld.toCharArray();
         int length = charArray.length;
-
-
-//        System.out.println("Введите число в диапазоне от 0 до " + length);
-
-
-
         return String.valueOf(charArray[k]);
 
     }

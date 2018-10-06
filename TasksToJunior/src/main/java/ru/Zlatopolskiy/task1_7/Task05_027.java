@@ -19,8 +19,6 @@ public class Task05_027 {
         Scanner scanner = new Scanner(System.in);
         int numberFromKeyBoardOne = scanner.nextInt();
         int numberFromKeyBoardTwo = scanner.nextInt();
-
-
     }
 
 
@@ -30,7 +28,6 @@ public class Task05_027 {
         for (int i = 1; i <= 5 ; i++) {
             result = result + i;
         }
-
         return result;
     }
 
@@ -73,12 +70,4 @@ public class Task05_027 {
         }
         return result;
     }
-
-
-
-
-
-
-
-
 }

@@ -10,9 +10,7 @@ public class Task05_27Test {
     @Test
     public void whenRange1_5ThenSum15() {
         Task05_027 task = new Task05_027();
-
         assertEquals(15,task.sumRangeOfNumbers());
-
     }
 
     //б

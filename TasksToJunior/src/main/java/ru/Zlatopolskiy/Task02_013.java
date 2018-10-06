@@ -19,6 +19,13 @@ public class Task02_013 {
         return result;
     }
 
+    public String reversNumber(String number) {
+
+        StringBuilder stringBuilder = new StringBuilder(number);
+        return stringBuilder.reverse().toString();
+
+    }
+
 
 
 }

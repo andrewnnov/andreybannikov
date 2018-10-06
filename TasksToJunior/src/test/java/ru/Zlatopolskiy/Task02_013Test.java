@@ -10,5 +10,6 @@ public class Task02_013Test {
     public void when123then321() {
         Task02_013 task = new Task02_013();
         assertEquals(321, task.reversNumber(123));
+        assertEquals("321a", task.reversNumber("a123"));
     }
 }

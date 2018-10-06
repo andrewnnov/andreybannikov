@@ -3,14 +3,19 @@ package ru.Zlatopolskiy;
 import java.util.Scanner;
 
 /*
-Составить программу вывода на экран числа, вводимого с клавиатуры. Выво-димому числу должно предшествовать сообщение "Вы ввели число".
+Составить программу вывода на экран числа, вводимого с клавиатуры. Выводимому числу должно предшествовать сообщение "Вы ввели число".
  */
 
 public class Task01_003 {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(scanner.nextLine());
+        System.out.println("Вы ввели число: " + scanner.nextLine());
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 //    public static void printNumber(String number) {
