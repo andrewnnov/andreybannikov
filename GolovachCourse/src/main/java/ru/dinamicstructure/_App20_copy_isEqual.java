@@ -8,13 +8,13 @@ public class _App20_copy_isEqual {
 
         Node tailA = _(1,2,3,4);
         Node tailB = copy(tailA);
-        System.out.println("a: " + tailA);
-        System.out.println("b: " + tailB);
+        System.out.println("a: " + toString(tailA));
+        System.out.println("b: " + toString(tailB));
         System.out.println("isEqual: " + isEqual(tailA, tailB));
         System.out.println("----------");
         tailB.next.next.value = 1000;
-        System.out.println("a: " + tailA);
-        System.out.println("b: " + tailB);
+        System.out.println("a: " + toString(tailA));
+        System.out.println("b: " + toString(tailB));
         System.out.println("isEqual: " + isEqual(tailA, tailB));
 
 
@@ -32,6 +32,10 @@ public class _App20_copy_isEqual {
         } else {
             return tailA == tailB;}
 
+    }
+
+    public static String toString(Node tail) {
+        return (tail == null) ? "*" : tail.value + "->" + toString(tail.next);
     }
 
 
