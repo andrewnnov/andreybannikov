@@ -9,15 +9,35 @@ import java.util.List;
 
 public class Task06_008 {
 
+//    public List<Integer> sampleFromArray(int n) {
+//
+//        int [] arrayOfNumbers = {1, 4, 9, 16, 25, 41};
+//        List<Integer> list = new ArrayList<>();
+//
+//        for (int i = 0; i < arrayOfNumbers.length ; i++) {
+//            if(arrayOfNumbers[i] < n) {
+//                list.add(arrayOfNumbers[i]);
+//            }
+//        }
+//
+//        return list;
+//
+//
+//    }
+
+
     public List<Integer> sampleFromArray(int n) {
 
-        int [] arrayOfNumbers = {1, 4, 9, 16, 25, 41};
         List<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i < arrayOfNumbers.length ; i++) {
-            if(arrayOfNumbers[i] < n) {
-                list.add(arrayOfNumbers[i]);
+        for (int i = 0; i < n ; i++) {
+
+            if ((i * 2 + i * i + 1 )<= n) {
+
+                list.add(i * 2 + i*i + 1);
+
             }
+
         }
 
         return list;
