@@ -25,4 +25,18 @@ package ru.Zlatopolskiy.task1_7;
  */
 
 public class Task04_115 {
+
+    private String[] animal = {"Крыса", "Корова", "Тигр", "Заяц", "Дракон", "Змея", "Лошадь", "Овца", "Обезьяна", "Петух", "Собака", "Свинья"};
+    private String[] color = {"Зеленый", "Красный", "Желтый", "Белый", "Черный"};
+
+    private int animalLength = animal.length;
+    private int colorLength = color.length;
+
+    public String definitionChineseYear(int year) {
+        int n = year - 4;
+        String result = null;
+        result = animal[n%animalLength] + " " + color[n%colorLength];
+        return result;
+
+    }
 }

@@ -15,7 +15,7 @@ public class Task04_067 {
 
         if(tmp <6 && tmp > 0) {
             result = "Рабочий день";
-        } else if(tmp < 8 && tmp > 5 || tmp == 0) {
+        } else if(tmp == 6 || tmp == 0) {
             result = "Выходной";
         }
 
