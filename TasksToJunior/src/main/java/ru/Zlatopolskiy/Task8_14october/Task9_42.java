@@ -26,6 +26,11 @@ public class Task9_42 {
         String newString = new String(invertWord);
 
         return newString;
-        
+    }
+
+    public String invertAndPrintWordStringBuilder(String word) {
+        StringBuffer newWord = new StringBuffer(word);
+
+        return String.valueOf(newWord.reverse());
     }
 }

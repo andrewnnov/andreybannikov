@@ -20,5 +20,11 @@ public class Task09_42Test {
         assertEquals("", task.invertAndPrintWord(""));
     }
 
+    @Test
+    public void whenDimanThenNamiD() {
+        Task9_42 task = new Task9_42();
+        assertEquals("namid", task.invertAndPrintWordStringBuilder("diman"));
+    }
+
 
 }
