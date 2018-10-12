@@ -10,7 +10,9 @@ public class Task9_17 {
 //        boolean result = false;
 //
         int lengthWord = word.length();
-        return (word.charAt(0)== word.charAt(lengthWord -1)) ? true : false;
+        //return (word.charAt(0)== word.charAt(lengthWord -1)) ? true : false;
+
+        return word.charAt(0)== word.charAt(lengthWord -1);
 //
 //        if(word.charAt(0)== word.charAt(lengthWord -1)) {
 //            result = true;

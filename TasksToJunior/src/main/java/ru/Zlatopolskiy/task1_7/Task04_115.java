@@ -35,7 +35,7 @@ public class Task04_115 {
     public String definitionChineseYear(int year) {
         int n = year - 4;
         String result = null;
-        result = animal[n%animalLength] + " " + color[n%colorLength];
+        result = animal[n%animalLength] + " " + color[n%10];
         return result;
 
     }

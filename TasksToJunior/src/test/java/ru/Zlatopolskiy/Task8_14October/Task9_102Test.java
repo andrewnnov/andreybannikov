@@ -11,6 +11,6 @@ public class Task9_102Test {
     @Test
     public void whenCatThenTac() {
         Task9_102 task = new Task9_102();
-        assertEquals("taC", task.reversLetterInTheWord("Cat", 1, 3));
+        assertEquals("taC", task.reversLetterInTheWord("Cat", 4, 3));
     }
 }
