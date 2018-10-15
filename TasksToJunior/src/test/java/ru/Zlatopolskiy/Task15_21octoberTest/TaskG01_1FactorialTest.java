@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TaskG01_1FactorialTest {
 
+
     @Test
     public void whe5Then120() {
         TaskG01_1Factorial task = new TaskG01_1Factorial();
