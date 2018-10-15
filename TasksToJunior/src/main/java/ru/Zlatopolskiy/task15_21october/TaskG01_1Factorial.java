@@ -23,14 +23,37 @@ public class TaskG01_1Factorial {
         }
 
         return result;
-
     }
 
 
 
     public int calculationFactorialIterRec(int number) {
-        
+
         return number == 0  ? 1 : number * calculationFactorialIterRec(number -1);
 
     }
+
+
+    //use BigInteger iterative
+    public BigInteger calculationFactorialIterMyBigInt(int number) {
+
+        BigInteger result = BigInteger.valueOf(1);
+        for (int i = 1; i <=number ; i++) {
+
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+
+        return result;
+
+    }
+
+    public BigInteger calculationFactorialIterRecMyBigInt(int number) {
+
+        BigInteger newNumber = BigInteger.valueOf(number);
+
+        return number == 0  ? BigInteger.valueOf(1) : newNumber.multiply(BigInteger.valueOf(calculationFactorialIterRec(number -1)));
+
+    }
+
+
 }
