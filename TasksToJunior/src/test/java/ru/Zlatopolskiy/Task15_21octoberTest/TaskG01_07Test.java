@@ -1,7 +1,6 @@
 package ru.Zlatopolskiy.Task15_21octoberTest;
 
 import org.junit.Test;
-import ru.Zlatopolskiy.task15_21october.TaskG01_05;
 import ru.Zlatopolskiy.task15_21october.TaskG1_07;
 
 import static org.hamcrest.Matchers.is;
@@ -18,6 +17,19 @@ public class TaskG01_07Test {
         Integer[] resArr = {1, 2, 3, 4, 5, 6, 7, 8, 15, 20};
 
 
-        assertThat(task.mergeSort(array1, array2), is(resArr) );
+        assertThat(task.mergeSortedArrays(array1, array2), is(resArr) );
     }
+
+    @Test
+    public void whenWeHave2EmptyArrThenReturn1sort() {
+        TaskG1_07 task = new TaskG1_07();
+        Integer[] array1 = {};
+        Integer[] array2 = {};
+        Integer[] resArr = {};
+
+
+        assertThat(task.mergeSortedArrays(array1, array2), is(resArr) );
+    }
+
+
 }
