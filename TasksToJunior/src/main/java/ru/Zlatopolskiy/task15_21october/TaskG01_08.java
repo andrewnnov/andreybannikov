@@ -6,7 +6,7 @@ TaskG01_08: MergeSort - реализовать итеративное и рек�
 
 public class TaskG01_08 {
 
-    public int[] mergeSort(int[] elements, int low, int high) {
+    public Comparable[] mergeSort(Comparable[] elements, int low, int high) {
         if(low < high) {
             int mid = (low + high)/2;
             mergeSort(elements, low, mid);
@@ -16,24 +16,26 @@ public class TaskG01_08 {
         return elements;
     }
 
-    private static void merge(int[] subset, int low, int mid, int high) {
+    private static void merge(Comparable[] subset, int low, int mid, int high) {
 
         int n = high - low + 1;
-        int[] temp = new int[n];
+        Comparable[] temp = new Comparable[n];
 
         int i = low;
         int j = mid+1;
         int k = 0;
 
         while (i <= mid || j<= high) {
-            if(i > mid)
+            if(i > mid) {
                 temp[k++] = subset[j++];
-            else if(j > high)
+            } else if(j > high) {
                 temp[k++]= subset[i++];
-            else if(subset[i] < subset[j])
+            } else if(subset[i].compareTo( subset[j]) < 0) {
                 temp[k++] = subset[i++];
-            else
+            } else {
                 temp[k++] = subset[j++];
+            }
+
         }
 
         for (j = 0; j < n; j++) {
