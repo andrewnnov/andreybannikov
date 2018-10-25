@@ -12,9 +12,6 @@ public class Task12_023 {
         drawArrayA();
         drawArrayB();
         drawArrayC();
-
-
-
     }
 
     //a

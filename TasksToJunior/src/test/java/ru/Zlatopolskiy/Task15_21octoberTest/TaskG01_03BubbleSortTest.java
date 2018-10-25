@@ -25,6 +25,8 @@ public class TaskG01_03BubbleSortTest {
 
 
 
+
+
         assertEquals(Arrays.toString(sortArray), Arrays.toString(task.bubbleSort(array)));
 
         System.out.println("Упорядоченный" + Arrays.toString(task.bubbleSort(array)));

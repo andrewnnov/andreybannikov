@@ -16,10 +16,10 @@ public class Task13_12Test {
     public void when2EmloyeeMore3ThenPrint2() {
 
         Employee[] employees = new Employee[4];
-        Employee em1 = new Employee("Иван", "Иванов", "Иванович", 2011, 12, 01);
-        Employee em2 = new Employee("Петр", "Петров", "Петрович", 2012, 12, 01);
-        Employee em3 = new Employee("Сергей", "Сергеев", "Сергеевич", 2014, 11, 01);
-        Employee em4 = new Employee("Андрей", "Андреев", "Андреевич", 2016, 12, 01);
+        Employee em1 = new Employee("Иван", "Иванов", "Иванович", 2011, 12, 1);
+        Employee em2 = new Employee("Петр", "Петров", "Петрович", 2012, 12, 1);
+        Employee em3 = new Employee("Сергей", "Сергеев", "Сергеевич", 2014, 10, 1);
+        Employee em4 = new Employee("Андрей", "Андреев", "Андреевич", 2016, 12, 1);
 
         employees[0] = em1;
         employees[1] = em2;
@@ -29,6 +29,7 @@ public class Task13_12Test {
         List<Employee>  employeeList = new ArrayList<>();
         employeeList.add(em1);
         employeeList.add(em2);
+        employeeList.add(em3);
 
         Task13_12 task = new Task13_12();
         assertEquals(employeeList, task.findEmployee(employees));

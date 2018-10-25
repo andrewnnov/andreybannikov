@@ -14,6 +14,6 @@ public class _App14_part2_lecture2 {
             System.err.println(0);
         }
         //не дойдем до этого места
-        System.err.println(1);
+       // System.err.println(1);
     }
 }

@@ -26,17 +26,58 @@ package ru.Zlatopolskiy.task1_7;
 
 public class Task04_115 {
 
-    private String[] animal = {"Крыса", "Корова", "Тигр", "Заяц", "Дракон", "Змея", "Лошадь", "Овца", "Обезьяна", "Петух", "Собака", "Свинья"};
-    private String[] color = {"Зеленый", "Красный", "Желтый", "Белый", "Черный"};
+    public String getYearColor(int year) {
+        int rest = year % 10;
+        switch (rest) {
+            case 0:
+            case 1:
+                return "Белый";
+            case 2:
+            case 3:
+                return "Черный";
+            case 4:
+            case 5:
+                return "Зеленый";
+            case 6:
+            case 7:
+                return "Красный";
+            case 8:
+            case 9:
+                return "Желтый";
+        }
+        return "error";
 
-    private int animalLength = animal.length;
-    private int colorLength = color.length;
 
-    public String definitionChineseYear(int year) {
-        int n = year - 4;
-        String result = null;
-        result = animal[n%animalLength] + " " + color[n%10];
-        return result;
+    }
 
+    public String getYearTotem(int year) {
+        int rest = year % 12;
+        switch (rest) {
+            case 0:
+                return "Обезьяна";
+            case 1:
+                return "Петух";
+            case 2:
+                return "Собака";
+            case 3:
+                return "Свинья";
+            case 4:
+                return "Крыса";
+            case 5:
+                return "Корова";
+            case 6:
+                return "Тигр";
+            case 7:
+                return "Кролик";
+            case 8:
+                return "Дракон";
+            case 9:
+                return "Змея";
+            case 10:
+                return "Horse";
+            case 11:
+                return "Лошадь";
+        }
+        return "error";
     }
 }

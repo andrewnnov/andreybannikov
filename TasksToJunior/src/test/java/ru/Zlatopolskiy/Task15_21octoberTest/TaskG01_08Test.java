@@ -23,7 +23,7 @@ public class TaskG01_08Test {
 
 
 
-       assertThat(task.mergeSort(notSortedArray, 0, 9), is(sortedArray) );
+       assertThat(task.mergeSortRec(notSortedArray, 0, 9), is(sortedArray) );
     }
 
 
@@ -39,8 +39,23 @@ public class TaskG01_08Test {
 
 
 
-        assertThat(task.mergeSort(notSortedArray, 0, 3), is(sortedArray) );
+        assertThat(task.mergeSortRec(notSortedArray, 0, 3), is(sortedArray) );
 
-        System.out.println(Arrays.toString(task.mergeSort(notSortedArray, 0, 3)));
+        System.out.println(Arrays.toString(task.mergeSortRec(notSortedArray, 0, 3)));
+    }
+
+    @Test
+    public void whenWeHave2UnSortArrayStringThenReturnSortArrayStringIterMethod() {
+
+        TaskG01_08 task = new TaskG01_08();
+
+        String[] notSortedArray = {"maza", "faza", "sister", "braza"};
+        String[] sortedArray = {"braza", "faza", "maza", "sister"};
+
+
+
+        assertThat(task.mergeSortIter(notSortedArray, 0, 3), is(sortedArray) );
+
+        System.out.println(Arrays.toString(task.mergeSortIter(notSortedArray, 0, 3)));
     }
 }

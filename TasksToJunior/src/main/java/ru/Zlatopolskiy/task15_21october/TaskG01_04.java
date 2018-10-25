@@ -17,7 +17,7 @@ public class TaskG01_04   {
     public Comparable[] bubbleSort(Comparable[] array) {
 
         for (int boarder = array.length - 1; boarder >=0 ; boarder--) {
-            for (int index = 0; index < array.length -1; index++) {
+            for (int index = 0; index < array.length - 1; index++) {
                 if(array[index].compareTo(array[index + 1]) > 0) {
                     Comparable tmp = array[index];
                     array[index] = array[index + 1];

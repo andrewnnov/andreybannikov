@@ -13,7 +13,7 @@ public class TaskG01_1FactorialTest {
     @Test
     public void whe5Then120() {
         TaskG01_1Factorial task = new TaskG01_1Factorial();
-        assertEquals(120, task.calculationFactorialIterMy(5));
+        assertEquals(120, task.calculationFactorialIterMy(100));
     }
 
     @Test
@@ -26,14 +26,14 @@ public class TaskG01_1FactorialTest {
     @Test
     public void whe5RecThen120() {
         TaskG01_1Factorial task = new TaskG01_1Factorial();
-        assertEquals(120, task.calculationFactorialIterRec(5));
+        assertEquals(120, task.calculationFactorialIterRec(100));
         System.out.println(task.calculationFactorialIterRec(5));
     }
 
     @Test
     public void whe5RecThen120BigInt() {
         TaskG01_1Factorial task = new TaskG01_1Factorial();
-        assertEquals(BigInteger.valueOf(120), task.calculationFactorialIterMyBigInt(5));
+        assertEquals(BigInteger.valueOf(120), task.calculationFactorialIterMyBigInt(100));
         System.out.println(task.calculationFactorialIterRec(5));
     }
 
@@ -41,7 +41,7 @@ public class TaskG01_1FactorialTest {
     @Test
     public void whe5RecThen120BigIntRec() {
         TaskG01_1Factorial task = new TaskG01_1Factorial();
-        assertEquals(BigInteger.valueOf(120), task.calculationFactorialIterRecMyBigInt(5));
+        assertEquals(BigInteger.valueOf(120), task.calculationFactorialRecMyBigInt(1000000));
         System.out.println(task.calculationFactorialIterRec(5));
     }
 }

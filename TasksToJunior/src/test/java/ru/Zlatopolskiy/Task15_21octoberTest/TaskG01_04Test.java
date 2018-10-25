@@ -35,4 +35,17 @@ public class TaskG01_04Test {
         System.out.println("Упорядоченный" + Arrays.toString(task.selectSort(array)));
     }
 
+    @Test
+    public void whenIntSelectSortThen123() {
+
+        TaskG01_04 task = new TaskG01_04();
+        Integer[] array = {2, 4, 7, 3, 3, 1};
+        System.out.println("Входящий массив" + Arrays.toString(array));
+        Integer[] sortArray = {1, 2, 3, 3, 4, 7};
+
+        assertEquals(Arrays.toString(sortArray), Arrays.toString(task.selectSort(array)));
+
+        System.out.println("Упорядоченный" + Arrays.toString(task.selectSort(array)));
+    }
+
 }

@@ -11,8 +11,11 @@ public class Task04_115Test {
     @Test
     public void when1986ThenRedTiger() {
         Task04_115 task = new Task04_115();
-        assertEquals("Тигр Красный", task.definitionChineseYear(1986));
-        System.out.println(task.definitionChineseYear(1986));
+
+        String defineYear = task.getYearTotem(1986) + " " + task.getYearColor(1986);
+
+        assertEquals("Тигр Красный", defineYear );
+
     }
 
 

@@ -13,13 +13,13 @@ public class TaskG01_02fibonachiTest {
     @Test
     public void when15RecurseThen987() {
 
-        assertEquals(BigInteger.valueOf(987), TaskG01_02_fibonacci.fibMyRecursive(15));
+        assertEquals(BigInteger.valueOf(987), TaskG01_02_fibonacci.fibMyRecursive(100));
     }
 
     @Test
     public void when15IterativeThen987() {
 
-        assertEquals(BigInteger.valueOf(987), TaskG01_02_fibonacci.fibMyIterative(15));
+        assertEquals(BigInteger.valueOf(987), TaskG01_02_fibonacci.fibMyIterative(100));
     }
 
 

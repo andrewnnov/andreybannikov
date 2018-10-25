@@ -25,20 +25,7 @@ public class Task13_12 {
         List<Employee> listEmployee = new ArrayList<>();
 
 
-        //return monthToday < monthOfBorn ? yearToday - yearOfBorn - 1 : yearToday - yearOfBorn;
-
         for (Employee el: employees) {
-
-//            if(monthToday < el.getHireDate().getMonthValue()) {
-//                int year = yearToday - el.getHireDate().getYear() -1;
-//            } else {
-//                int year = yearToday - el.getHireDate().getYear();
-//            }
-
-
-//            if(yearToday - el.getHireDate().getYear() > 3) {
-////               listEmployee.add((el));
-////           }
 
             if(monthToday < el.getHireDate().getMonthValue() && yearToday - el.getHireDate().getYear() - 1 > 3)  {
                 listEmployee.add((el));

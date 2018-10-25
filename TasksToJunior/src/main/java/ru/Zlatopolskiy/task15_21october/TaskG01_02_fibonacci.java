@@ -32,7 +32,7 @@ public class TaskG01_02_fibonacci {
 
 
     /**
-     * Method is difine sequence Fib using iterative
+     * Method is define sequence Fib using iterative
      * @param number is integer type
      * @return BigInteger type
      */

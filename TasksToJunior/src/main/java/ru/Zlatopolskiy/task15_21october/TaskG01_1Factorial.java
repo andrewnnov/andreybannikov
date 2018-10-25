@@ -10,8 +10,19 @@ and recursive solution (without loop). Inside of your methods you have to use
  */
 
 import java.math.BigInteger;
+import java.util.Scanner;
+
 
 public class TaskG01_1Factorial {
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println(calculationFactorialIterMyBigInt(sc.nextInt()));
+
+    }
+
 
     public int calculationFactorialIterMy(int number) {
 
@@ -35,7 +46,7 @@ public class TaskG01_1Factorial {
 
 
     //use BigInteger iterative
-    public BigInteger calculationFactorialIterMyBigInt(int number) {
+    public static BigInteger calculationFactorialIterMyBigInt(int number) {
 
         BigInteger result = BigInteger.valueOf(1);
         for (int i = 1; i <=number ; i++) {
@@ -47,11 +58,11 @@ public class TaskG01_1Factorial {
 
     }
 
-    public BigInteger calculationFactorialIterRecMyBigInt(int number) {
+    public BigInteger calculationFactorialRecMyBigInt(int number) {
 
         BigInteger newNumber = BigInteger.valueOf(number);
 
-        return number == 0  ? BigInteger.valueOf(1) : newNumber.multiply(BigInteger.valueOf(calculationFactorialIterRec(number -1)));
+        return number == 0  ? BigInteger.valueOf(1) : newNumber.multiply(calculationFactorialRecMyBigInt(number -1));
 
     }
 

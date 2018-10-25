@@ -8,7 +8,6 @@ TaskG01_07: Реализовать метод Comparable[] mergeSortedArrays (Co
  */
 public class TaskG1_07 {
 
-
     public Comparable[] mergeSortedArrays(Comparable[] arr1, Comparable[] arr2) {
         Comparable[] mergeArr = new Comparable[arr1.length + arr2.length];
 
@@ -26,10 +25,8 @@ public class TaskG1_07 {
                 } else {
                     mergeArr[i] = arr2[countArr2++];
                 }
-
             }
 
         return mergeArr;
     }
-
 }
