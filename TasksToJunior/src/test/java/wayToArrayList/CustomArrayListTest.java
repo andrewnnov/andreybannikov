@@ -36,8 +36,6 @@ public class CustomArrayListTest {
     @Test
     //////test add
     public void whenAddElementThenListAddNewElement() {
-//       listString.add(0, "zero");
-//       listString.add(1, "one");
         assertEquals("zero", listString.get(0));
         assertEquals("one", listString.get(1));
     }
@@ -50,6 +48,8 @@ public class CustomArrayListTest {
 
         Integer expected = 5;
         assertEquals(expected, listInteger.get(1));
+
+
     }
 
     @Test
@@ -63,14 +63,42 @@ public class CustomArrayListTest {
 
 
     @Test
-    @Ignore
-    //////test indexOf
+
+    //////test remove
     public void whenRemoveOfElThenReturnNewArrayMinusOneElement() {
-//        String expected = listString.get(1);
-//        assertEquals(expected, listString.get(1));
-//        int result = listString.indexOf("one");
-//        assertEquals(1, result);
+
+        String result = listString.remove(1);
+
+        assertEquals("one", result);
+        for (String el: listString) {
+            System.out.println(el);
+        }
     }
+
+
+    @Test
+
+    //////test set
+    public void whenSetOfElThenReturnNewArrayWithOneNewElement() {
+
+        for (String el: listString) {
+            System.out.println(el);
+        }
+
+        listString.set(1, "wtf");
+        String newEl = listString.get(1);
+
+        assertEquals("wtf", newEl);
+    }
+
+
+
+
+
+
+
+
+
 
 
 
