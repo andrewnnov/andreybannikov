@@ -48,19 +48,59 @@ public class CustomArrayList implements List{
 
     }
 
-    //------------------------------------------------------------------------------------------------------------------
+    //get ++---------------------------------------------------------------------------------------------------------------
 
     @Override
     public Object get(int index) {
         return myArray[index];
     }
 
-
+   //size ++------------------------------------------------------------------------------------------------------
 
     @Override
     public int size() {
         return size;
     }
+
+    //indexOf++         ------------------------------------------------------------------------------------------------
+    @Override
+    public int indexOf(Object o) {
+        int result = -1;
+        for (int i = 0; i < size ; i++) {
+            if(o.equals(myArray[i])){
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+
+    //remove-----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public Object remove(int index) {
+        Object result = myArray[index];
+
+        System.arraycopy(myArray, index + 1 , myArray, index - 1, size - 1 - index);
+        size--;
+
+        return result;
+
+    }
+
+    //set----------------------------------------------------------------------------------------------------------
+
+    @Override
+    public Object set(int index, Object element) {
+        Object result = myArray[index];
+
+        myArray[index] = element;
+
+        return result;
+    }
+
+
+    //----------------------------------------------------------------------------------------------------------------
 
     @Override
     public boolean isEmpty() {
@@ -104,24 +144,6 @@ public class CustomArrayList implements List{
 
     }
 
-
-
-    @Override
-    public Object set(int index, Object element) {
-        return null;
-    }
-
-
-
-    @Override
-    public Object remove(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
 
     @Override
     public int lastIndexOf(Object o) {

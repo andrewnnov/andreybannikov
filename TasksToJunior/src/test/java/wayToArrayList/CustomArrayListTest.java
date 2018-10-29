@@ -17,7 +17,7 @@ public class CustomArrayListTest {
 
 
     @Test
-    //////test add
+    //////test add+++
     public void whenAddElementThenListAddNewElement() {
         List<String> listString = new CustomArrayList();
 
@@ -38,7 +38,7 @@ public class CustomArrayListTest {
     }
 
     @Test
-    //////test add with index
+    //////test add with index+++
 
     public void whenAddElementAndIndexThenListAddNewElement() {
         List<String> listString = new CustomArrayList();
@@ -63,9 +63,9 @@ public class CustomArrayListTest {
     }
 
     @Test
-    //////test get
+    //////test get+++
     public void whenWantToGetElThenEnterIndexOfElement() {
-        List<String> listString = new ArrayList<>();
+        List<String> listString = new CustomArrayList();
         listString.add(0, "zero");
         listString.add(1, "one");
         listString.add(2, "three");
@@ -78,7 +78,7 @@ public class CustomArrayListTest {
     @Test
     //////test indexOf
     public void whenWantToIndexOfElThenReturnElement() {
-        List<String> listString = new ArrayList<>();
+        List<String> listString = new CustomArrayList();
         listString.add(0, "zero");
         listString.add(1, "one");
         listString.add(2, "three");
@@ -93,7 +93,7 @@ public class CustomArrayListTest {
 
     //////test remove
     public void whenRemoveOfElThenReturnNewArrayMinusOneElement() {
-        List<String> listString = new ArrayList<>();
+        List<String> listString = new CustomArrayList();
         listString.add(0, "zero");
         listString.add(1, "one");
         listString.add(2, "three");
@@ -101,9 +101,9 @@ public class CustomArrayListTest {
         String result = listString.remove(1);
 
         assertEquals("one", result);
-        for (String el: listString) {
-            System.out.println(el);
-        }
+//        for (String el: listString) {
+//            System.out.println(el);
+//        }
     }
 
 
@@ -111,19 +111,19 @@ public class CustomArrayListTest {
 
     //////test set
     public void whenSetOfElThenReturnNewArrayWithOneNewElement() {
-        List<String> listString = new ArrayList<>();
+        List<String> listString = new CustomArrayList();
         listString.add(0, "zero");
         listString.add(1, "one");
         listString.add(2, "three");
 
-        for (String el: listString) {
-            System.out.println(el);
-        }
+
 
         listString.set(1, "wtf");
         String newEl = listString.get(1);
 
         assertEquals("wtf", newEl);
+
+
     }
 
 
