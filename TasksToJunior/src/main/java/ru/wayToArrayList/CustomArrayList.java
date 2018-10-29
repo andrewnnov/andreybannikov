@@ -8,41 +8,58 @@ package ru.wayToArrayList;
 отнаследовать его от List, реализовать его методы. Класс должен работать как расширяющийся массив.
  */
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class CustomArrayList implements List{
 
-    private Object[] myArray = new Object[10];
-    private int size = myArray.length; //
+    int defaultSize = 10;
 
-    public void setMyArray(Object[] myArray) {
-        this.myArray = myArray;
+    private Object[] myArray = new Object[defaultSize];
+
+    private int size = 0; //
+
+//    public void setMyArray(Object[] myArray) {
+//        this.myArray = myArray;
+//    }
+
+
+    @Override
+    //add element
+    public boolean add(Object o) {
+        myArray[size++] = o;
+        return true;
     }
 
     //add element-------------------------------------------------------------------------------------------------------
 
     @Override
     public void add(int index, Object element) {
-        if(index > size || index < 0) {
-            System.out.println("Недопустимое значение");
-        } else
-        this.myArray[index] = element;
+        if(defaultSize - size <= 0) {
+            myArray = Arrays.copyOf(myArray, 2 * myArray.length);
+        }
+//        if(index > size || index < 0) {
+//            System.out.println("Недопустимое значение");
+//        } else {
+            System.arraycopy(myArray, index, myArray, index + 1, size - index);
+            myArray[index] = element;
+            size++;
+//        }
+
 
     }
 
     //------------------------------------------------------------------------------------------------------------------
 
     @Override
-    public boolean add(Object o) {
-        return false;
+    public Object get(int index) {
+        return myArray[index];
     }
+
+
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -87,10 +104,7 @@ public class CustomArrayList implements List{
 
     }
 
-    @Override
-    public Object get(int index) {
-        return null;
-    }
+
 
     @Override
     public Object set(int index, Object element) {
@@ -148,4 +162,12 @@ public class CustomArrayList implements List{
     public Object[] toArray(Object[] a) {
         return new Object[0];
     }
+
+
+    @Override
+    public String toString() {
+        return String.valueOf(myArray);
+    }
+
+
 }
