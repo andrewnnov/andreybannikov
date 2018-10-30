@@ -26,7 +26,14 @@ public class CustomArrayList implements List{
     @Override
     //add element
     public boolean add(Object o) {
-        myArray[size++] = o;
+
+            if(size == myArray.length) {
+                Object[] tmp = myArray;
+                myArray = new Object[tmp.length + defaultSize];
+                System.arraycopy(tmp, 0, myArray, 0, tmp.length);
+            }
+            myArray[size++] = o;
+
         return true;
     }
 
@@ -34,12 +41,11 @@ public class CustomArrayList implements List{
 
     @Override
     public void add(int index, Object element) {
-        if(defaultSize - size <= 0) {
-            myArray = Arrays.copyOf(myArray, 2 * myArray.length);
+        if(size == myArray.length) {
+            Object[] tmp = myArray;
+            myArray = new Object[tmp.length + defaultSize];
+            System.arraycopy(tmp, 0, myArray, 0, tmp.length);
         }
-//        if(index > size || index < 0) {
-//            System.out.println("Недопустимое значение");
-//        } else {
             System.arraycopy(myArray, index, myArray, index + 1, size - index);
             myArray[index] = element;
             size++;

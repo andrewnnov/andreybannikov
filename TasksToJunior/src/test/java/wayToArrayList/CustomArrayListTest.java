@@ -24,7 +24,7 @@ public class CustomArrayListTest {
 
         assertEquals(true, listString.add("wow"));
 
-        assertEquals(1, listString.size() );
+        assertEquals(1, listString.size());
 
         assertEquals(true, listString.add("wtf"));
         assertEquals("wtf", listString.get(1));
@@ -123,6 +123,19 @@ public class CustomArrayListTest {
 
         assertEquals("wtf", newEl);
 
+
+    }
+
+    @Test
+    //////test add+++
+    public void when1mlnElemThenOk() {
+
+
+        List<String> listString = new CustomArrayList();
+
+        for (int i = 0; i < 500_000 ; i++) {
+            listString.add("1");
+        }
 
     }
 
