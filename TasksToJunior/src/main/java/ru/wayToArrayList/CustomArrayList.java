@@ -44,6 +44,8 @@ public class CustomArrayList implements List{
         }
     }
 
+
+
     //add element-------------------------------------------------------------------------------------------------------
 
     @Override
@@ -87,8 +89,10 @@ public class CustomArrayList implements List{
     @Override
     public Object remove(int index) {
         Object result = myArray[index];
-
-        System.arraycopy(myArray, index + 1 , myArray, index - 1, size - 1 - index);
+        Object[] tmp = myArray;
+        myArray = new Object[tmp.length - 1];
+        System.arraycopy(tmp, 0, myArray, 0, index );
+        System.arraycopy(tmp, index + 1 , myArray, index, size - 1 - index);
         size--;
 
         return result;

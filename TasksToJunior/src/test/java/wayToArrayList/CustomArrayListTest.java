@@ -1,9 +1,6 @@
 package wayToArrayList;
 
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import ru.Zlatopolskiy.task15_21october.TaskG01_05;
 import ru.wayToArrayList.CustomArrayList;
 
 import java.util.ArrayList;
@@ -127,21 +124,64 @@ public class CustomArrayListTest {
     }
 
     @Test
-    //////test add+++
+    //////test define speed add to the end list
     public void when1mlnElemThenOk() {
 
 
 
         List<String> listString = new CustomArrayList();
 
-        measure(new CustomArrayList());
-        measure(new ArrayList<>());
-
-
-
+        measureAddInEndList(new CustomArrayList());
+        measureAddInEndList(new ArrayList<>());
     }
 
-    public void measure(List<String> listString) {
+    @Test
+    //////test define speed add to the center list
+    public void when1mlnElemAddToEndListThenOk() {
+
+        List<String> listString = new CustomArrayList();
+        List<String> listStringAr = new ArrayList<>();
+
+        for (int i = 0; i < 1_000_000; i++) {
+            listString.add("1");
+            listStringAr.add("1");
+        }
+
+
+        measureAddInCentrList(listString);
+        measureAddInCentrList(listStringAr);
+
+
+        measureAddInStartList(listString);
+        measureAddInStartList(listStringAr);
+    }
+
+
+    //define speed remove elements
+
+    @Test
+
+    public void whenRemoveElemFromStartListThenReturnTime() {
+
+        List<String> listString = new CustomArrayList();
+        List<String> listStringAr = new ArrayList<>();
+
+        for (int i = 0; i < 1_000_000; i++) {
+            listString.add("1");
+            listStringAr.add("1");
+        }
+
+
+        measureRemoveElFromStartPosition(listString);
+        measureRemoveElFromStartPosition(listStringAr);
+
+        measureRemoveElFromEndPosition(listString);
+        measureRemoveElFromEndPosition(listStringAr);
+    }
+
+
+    // -----------------------------------------------------------------------------------------------------------
+    public void measureAddInEndList(List<String> listString) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < 1_000_000 ; i++) {
             listString.add("1");
@@ -149,8 +189,75 @@ public class CustomArrayListTest {
         long finishTime = System.currentTimeMillis();
 
         long time = finishTime - startTime;
-        System.out.println(time);
+        System.out.println("Время добавления миллиона эллементов " + time);
     }
+
+    //----------------------------------------------------------------------------------------------------------------
+
+    public void measureAddInCentrList(List<String> listString) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 500_000; i < 500_100 ; i++) {
+            listString.add(i, "2");
+        }
+
+
+        long finishTime = System.currentTimeMillis();
+
+        long time = finishTime - startTime;
+        System.out.println("Время добавления в центр листа " + time);
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------
+
+
+    //----------------------------------------------------------------------------------------------------------------
+
+    public void measureAddInStartList(List<String> listString) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < 100 ; i++) {
+            listString.add(i, "2");
+        }
+
+
+        long finishTime = System.currentTimeMillis();
+
+        long time = finishTime - startTime;
+        System.out.println("Время добавления в начало листа " + time);
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------------------------------------------
+
+    public void measureRemoveElFromStartPosition(List<String> listString) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < 100 ; i++) {
+            listString.remove(i);
+        }
+
+
+        long finishTime = System.currentTimeMillis();
+
+        long time = finishTime - startTime;
+        System.out.println("Время удаления из начала листа " + time);
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------
+
+    public void measureRemoveElFromEndPosition(List<String> listString) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 999_9999; i < 999_900 ; i--) {
+            listString.remove(i);
+        }
+
+
+        long finishTime = System.currentTimeMillis();
+
+        long time = finishTime - startTime;
+        System.out.println("Время удаления последних элементов листа " + time);
+    }
+
+
 
 
 }
