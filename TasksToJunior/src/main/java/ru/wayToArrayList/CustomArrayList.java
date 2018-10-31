@@ -27,25 +27,28 @@ public class CustomArrayList implements List{
     //add element
     public boolean add(Object o) {
 
-            if(size == myArray.length) {
-                Object[] tmp = myArray;
-                myArray = new Object[tmp.length + defaultSize];
-                System.arraycopy(tmp, 0, myArray, 0, tmp.length);
-            }
-            myArray[size++] = o;
+        growArray();
+        myArray[size++] = o;
 
         return true;
+    }
+
+    //увеличение массива ---------------------------------------------------------------------------------------------
+
+    public void growArray() {
+        if(size == myArray.length) {
+            Object[] tmp = myArray;
+            myArray = new Object[tmp.length*2];
+            System.arraycopy(tmp, 0, myArray, 0, tmp.length);
+
+        }
     }
 
     //add element-------------------------------------------------------------------------------------------------------
 
     @Override
     public void add(int index, Object element) {
-        if(size == myArray.length) {
-            Object[] tmp = myArray;
-            myArray = new Object[tmp.length + defaultSize];
-            System.arraycopy(tmp, 0, myArray, 0, tmp.length);
-        }
+            growArray();
             System.arraycopy(myArray, index, myArray, index + 1, size - index);
             myArray[index] = element;
             size++;
@@ -71,14 +74,12 @@ public class CustomArrayList implements List{
     //indexOf++         ------------------------------------------------------------------------------------------------
     @Override
     public int indexOf(Object o) {
-        int result = -1;
         for (int i = 0; i < size ; i++) {
             if(o.equals(myArray[i])){
-                result = i;
-                break;
+                return i;
             }
         }
-        return result;
+        return -1;
     }
 
     //remove-----------------------------------------------------------------------------------------------------------------
@@ -100,9 +101,8 @@ public class CustomArrayList implements List{
     public Object set(int index, Object element) {
         Object result = myArray[index];
 
-        myArray[index] = element;
+         return myArray[index] = element;
 
-        return result;
     }
 
 

@@ -131,35 +131,26 @@ public class CustomArrayListTest {
     public void when1mlnElemThenOk() {
 
 
+
         List<String> listString = new CustomArrayList();
 
-        for (int i = 0; i < 500_000 ; i++) {
-            listString.add("1");
-        }
+        measure(new CustomArrayList());
+        measure(new ArrayList<>());
+
+
 
     }
 
+    public void measure(List<String> listString) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < 1_000_000 ; i++) {
+            listString.add("1");
+        }
+        long finishTime = System.currentTimeMillis();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        long time = finishTime - startTime;
+        System.out.println(time);
+    }
 
 
 }
