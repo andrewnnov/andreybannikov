@@ -4,9 +4,8 @@ import java.util.*;
 
 public class CustomLinkedList implements List, Queue, Deque {
 
+
     private int size = 0;
-
-
 
     Node<Object> first;
 
@@ -35,30 +34,38 @@ public class CustomLinkedList implements List, Queue, Deque {
 
 
     //add element
-
     @Override
     public boolean add(Object o) {
-        Node<Object> tmp = last;
-        Node<Object> newNode = new Node<>(tmp, o, null);
-        if(tmp == null){
-            first = newNode;
-        }else
-            tmp.next = newNode;
-
+        Node<Object> newNode = new Node<>(last, o, null);
+        last = newNode;
         size++;
-
         return true;
     }
 
 
 
+    @Override
+    public Object get(int index) {
 
+        return node(index).item;
 
+    }
 
+    private Node<Object> node(int index) {
 
+        if(index < size) {
+            Node<Object> x = first;
+            for (int i = 0; i < index ; i++)
+                x = x.next;
 
-
-
+            return x;
+        } else {
+            Node<Object> x = last;
+            for (int i = size - 1; i < index ; i--)
+                x = x.prev;
+            return x;
+        }
+    }
 
 
     @Override
@@ -216,10 +223,7 @@ public class CustomLinkedList implements List, Queue, Deque {
 
     }
 
-    @Override
-    public Object get(int index) {
-        return null;
-    }
+
 
     @Override
     public Object set(int index, Object element) {
