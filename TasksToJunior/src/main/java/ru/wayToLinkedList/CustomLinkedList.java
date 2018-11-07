@@ -2,287 +2,20 @@ package ru.wayToLinkedList;
 
 import java.util.*;
 
-public class CustomLinkedList implements List, Queue, Deque {
+public class CustomLinkedList<E> implements List<E>, Deque<E> {
+
 
 
     private int size = 0;
 
-    Node<Object> first;
+    Node<E> first;
 
-    Node<Object> last;
+    Node<E> last;
 
-    public void setFirst(Node<Object> first) {
-        this.first = first;
-    }
 
-    public void setLast(Node<Object> last) {
-        this.last = last;
-    }
 
 
     public CustomLinkedList() {
-
-        this.last = new Node<>(first, null, null);
-        this.first = new Node<>(null, null, last);
-    }
-
-    @Override
-    public int size() {
-        return size;
-    }
-
-
-
-    //add element
-    @Override
-    public boolean add(Object o) {
-        Node<Object> newNode = new Node<>(last, o, null);
-        last = newNode;
-        size++;
-        return true;
-    }
-
-
-
-    @Override
-    public Object get(int index) {
-
-        return node(index).item;
-
-    }
-
-    private Node<Object> node(int index) {
-
-        if(index < size) {
-            Node<Object> x = first;
-            for (int i = 0; i < index ; i++)
-                x = x.next;
-
-            return x;
-        } else {
-            Node<Object> x = last;
-            for (int i = size - 1; i < index ; i--)
-                x = x.prev;
-            return x;
-        }
-    }
-
-
-    @Override
-    public void addFirst(Object o) {
-
-    }
-
-    @Override
-    public void addLast(Object o) {
-
-    }
-
-    @Override
-    public boolean offerFirst(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean offerLast(Object o) {
-        return false;
-    }
-
-    @Override
-    public Object removeFirst() {
-        return null;
-    }
-
-    @Override
-    public Object removeLast() {
-        return null;
-    }
-
-    @Override
-    public Object pollFirst() {
-        return null;
-    }
-
-    @Override
-    public Object pollLast() {
-        return null;
-    }
-
-    @Override
-    public Object getFirst() {
-        return null;
-    }
-
-    @Override
-    public Object getLast() {
-        return null;
-    }
-
-    @Override
-    public Object peekFirst() {
-        return null;
-    }
-
-    @Override
-    public Object peekLast() {
-        return null;
-    }
-
-    @Override
-    public boolean removeFirstOccurrence(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean removeLastOccurrence(Object o) {
-        return false;
-    }
-
-    @Override
-    public void push(Object o) {
-
-    }
-
-    @Override
-    public Object pop() {
-        return null;
-    }
-
-    @Override
-    public Iterator descendingIterator() {
-        return null;
-    }
-
-
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-
-
-
-    @Override
-    public boolean offer(Object o) {
-        return false;
-    }
-
-    @Override
-    public Object remove() {
-        return null;
-    }
-
-    @Override
-    public Object poll() {
-        return null;
-    }
-
-    @Override
-    public Object element() {
-        return null;
-    }
-
-    @Override
-    public Object peek() {
-        return null;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-
-
-    @Override
-    public Object set(int index, Object element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, Object element) {
-
-    }
-
-    @Override
-    public Object remove(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public ListIterator listIterator() {
-        return null;
-    }
-
-    @Override
-    public ListIterator listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public List subList(int fromIndex, int toIndex) {
-        return null;
-    }
-
-    @Override
-    public boolean retainAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public Object[] toArray(Object[] a) {
-        return new Object[0];
     }
 
     private static class Node<E> {
@@ -297,4 +30,356 @@ public class CustomLinkedList implements List, Queue, Deque {
 
         }
     }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public void addFirst(E e) {
+
+    }
+
+    @Override
+    public void addLast(E e) {
+
+    }
+
+    //add element
+    @Override
+    public boolean add(E newElement) {
+
+        if(size == 0) {
+            Node<E> newNode = new Node<>(null, newElement, null);
+            first = newNode ;
+            //last = newNode;
+        }
+        if(size == 1) {
+            Node<E> newNode = new Node<>(first, newElement, null);
+            last = newNode;
+        }
+
+        if(size > 1) {
+            Node<E> newNode = new Node<>(last, newElement, null);
+            last = newNode;
+        }
+
+        size++;
+        return true;
+    }
+
+    //add first element
+
+    @Override
+    public E getFirst() {
+        Node<E> f = first;
+        if(f == null){
+            System.out.println("Список Пуст");
+        }
+        return f.item;
+    }
+
+    //add last element
+
+    @Override
+    public E getLast() {
+        Node<E> l = last;
+        if(l == null){
+            System.out.println("Список Пуст");
+        }
+        return l.item;
+    }
+
+
+  // Empty or not list
+    @Override
+    public boolean isEmpty() {
+        Node<E> f = first;
+        if(f == null) {
+            return true;
+        }  else return false;
+
+    }
+
+    //delete first element
+
+    @Override
+    public E removeFirst() {
+        E el = first.item;
+        Node<E> f = first;
+        if(size == 0) {
+            System.out.println("Список Пуст");
+        }
+        if(size == 1) {
+            f.item = null;
+            size--;
+        }
+
+        if(size > 1){
+            Node<E> next = f.next;
+            f.item = null;
+            f.next = null;
+            first = next;
+            size--;
+        }
+
+        return el;
+    }
+
+    //delete last element
+
+    @Override
+    public E removeLast() {
+        E el = last.item;
+        Node<E> l = last;
+        if(size == 0) {
+            System.out.println("Список Пуст");
+        }
+        if(size == 1) {
+            l.item = null;
+            size--;
+        }
+        if(size > 1){
+            Node<E> prev = l.prev;
+            l.item = null;
+            l.prev = null;
+            last = prev;
+            size--;
+        }
+
+        return el;
+    }
+
+    //// delete element for index
+    @Override
+    public E remove(int index) {
+
+        if(size == 0) {
+            System.out.println("Список пуст");
+        }
+        if(size == 1) {
+            E el = first.item;
+            Node<E> f = first;
+            f.item = null;
+            f.next = null;
+            size--;
+        }
+        if (size > 1) {
+
+
+        }
+
+        return null;
+    }
+
+
+    //get element for index
+
+    @Override
+    public E get(int index) {
+
+        E el = null;
+
+        if (index < size/2) {
+            Node<E> x = first;
+            for (int i = 0; i < index; i++) {
+                x = x.next;
+            }
+            el = x.item;
+
+
+        } else {
+            Node<E> x = last;
+            for (int i = size - 1; i > index; i--) {
+                x = x.prev;
+            }
+            el = x.item;
+        }
+        return el;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
+    }
+
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
+    @Override
+    public Iterator<E> descendingIterator() {
+        return null;
+    }
+
+
+
+    @Override
+    public boolean offerFirst(E e) {
+        return false;
+    }
+
+    @Override
+    public boolean offerLast(E e) {
+        return false;
+    }
+
+
+
+    @Override
+    public E pollFirst() {
+        return null;
+    }
+
+    @Override
+    public E pollLast() {
+        return null;
+    }
+
+
+
+    @Override
+    public E peekFirst() {
+        return null;
+    }
+
+    @Override
+    public E peekLast() {
+        return null;
+    }
+
+    @Override
+    public boolean removeFirstOccurrence(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean removeLastOccurrence(Object o) {
+        return false;
+    }
+
+
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+
+
+    @Override
+    public E set(int index, E element) {
+        return null;
+    }
+
+    @Override
+    public void add(int index, E element) {
+
+    }
+
+
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public ListIterator<E> listIterator() {
+        return null;
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        return null;
+    }
+
+    @Override
+    public List<E> subList(int fromIndex, int toIndex) {
+        return null;
+    }
+
+    @Override
+    public boolean offer(E e) {
+        return false;
+    }
+
+    @Override
+    public E remove() {
+        return null;
+    }
+
+    @Override
+    public E poll() {
+        return null;
+    }
+
+    @Override
+    public E element() {
+        return null;
+    }
+
+    @Override
+    public E peek() {
+        return null;
+    }
+
+    @Override
+    public void push(E e) {
+
+    }
+
+    @Override
+    public E pop() {
+        return null;
+    }
+
+
 }
