@@ -53,10 +53,30 @@ public class CustomLinkedListTest {
         assertEquals(true, listString.add("3"));
 
         //assertEquals("1", listString.get(0));
+        assertEquals("1", listString.get(0));
+        assertEquals("2", listString.get(1));
         assertEquals("3", listString.get(2));
-
-
     }
+
+
+    @Test
+    //////test get element for index
+    public void whenRemoveElementForIndexThenReturnElementOfIndex() {
+        List<String> listString = new CustomLinkedList();
+        assertEquals(true, listString.add("1"));
+        assertEquals(true, listString.add("2"));
+        assertEquals(true, listString.add("3"));
+        assertEquals(true, listString.add("4"));
+        assertEquals(true, listString.add("5"));
+
+        //assertEquals("1", listString.get(0));
+        assertEquals("1", listString.remove(0));
+
+        
+    }
+
+
+
 
 
 

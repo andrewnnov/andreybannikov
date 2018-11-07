@@ -155,22 +155,48 @@ public class CustomLinkedList<E> implements List<E>, Deque<E> {
     @Override
     public E remove(int index) {
 
-        if(size == 0) {
-            System.out.println("Список пуст");
-        }
-        if(size == 1) {
-            E el = first.item;
-            Node<E> f = first;
-            f.item = null;
-            f.next = null;
-            size--;
-        }
-        if (size > 1) {
+        Node<E> x = getNodeOfIndex(index);
+        E element = x.item;
+        Node<E> next = x.next;
+        Node<E> prev = x.prev;
 
-
+        if(prev == null) {
+            first = next;
+        } else {
+            prev.next = next;
+            x.prev = null;
         }
 
-        return null;
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+            x.next = null;
+        }
+
+        x.item = null;
+        size--;
+
+//        if(size == 0) {
+//            System.out.println("list is empty");
+//        }
+//        if (size == 1) {
+//            x.item = null;
+//            size--;
+//        }
+//        if(size > 1) {
+//            prev.next = next;
+//            x.prev = null;
+//
+//            next.prev = prev;
+//            x.next = null;
+//
+//            x.item = null;
+//            size--;
+//        }
+
+       return element;
+
     }
 
 
@@ -178,25 +204,32 @@ public class CustomLinkedList<E> implements List<E>, Deque<E> {
 
     @Override
     public E get(int index) {
+        return getNodeOfIndex(index).item;
+    }
 
-        E el = null;
+
+    //получение ноды по Индексу
+    Node<E> getNodeOfIndex(int index) {
+
+        Node<E> el = null;
 
         if (index < size/2) {
             Node<E> x = first;
             for (int i = 0; i < index; i++) {
                 x = x.next;
             }
-            el = x.item;
-
+            el = x;
 
         } else {
             Node<E> x = last;
             for (int i = size - 1; i > index; i--) {
                 x = x.prev;
             }
-            el = x.item;
+            el = x;
         }
         return el;
+
+
     }
 
     @Override
