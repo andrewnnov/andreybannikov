@@ -50,23 +50,34 @@ public class CustomLinkedList<E> implements List<E>, Deque<E> {
     @Override
     public boolean add(E newElement) {
 
-        if(size == 0) {
-            Node<E> newNode = new Node<>(null, newElement, null);
-            first = newNode ;
-            //last = newNode;
+        Node<E> l = last;
+        Node<E> newNode = new Node<>(l, newElement, null);
+        last = newNode;
+        if(l ==null) {
+            first = newNode;
+        } else {
+            l.next = newNode;
         }
-        if(size == 1) {
-            Node<E> newNode = new Node<>(first, newElement, null);
-            last = newNode;
-        }
-
-        if(size > 1) {
-            Node<E> newNode = new Node<>(last, newElement, null);
-            last = newNode;
-        }
-
         size++;
         return true;
+
+//        if(size == 0) {
+//            Node<E> newNode = new Node<>(null, newElement, null);
+//            first = newNode ;
+//            //last = newNode;
+//        }
+//        if(size == 1) {
+//            Node<E> newNode = new Node<>(first, newElement, null);
+//            last = newNode;
+//        }
+//
+//        if(size > 1) {
+//            Node<E> newNode = new Node<>(last, newElement, null);
+//            last = newNode;
+//        }
+//
+//        size++;
+//        return true;
     }
 
     //add first element
