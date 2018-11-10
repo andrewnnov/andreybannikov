@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 public class CustomArrayListTest {
-
 
 
     @Test
@@ -27,7 +25,7 @@ public class CustomArrayListTest {
         assertEquals("wtf", listString.get(1));
         assertEquals(2, listString.size());
 
-        for (int i = 0; i < listString.size() ; i++) {
+        for (int i = 0; i < listString.size(); i++) {
             System.out.println(listString.get(i));
 
         }
@@ -53,7 +51,7 @@ public class CustomArrayListTest {
         listString.add(2, "ya-ya");
         assertEquals("zero", listString.get(0));
         assertEquals("one", listString.get(1));
-        for (int i = 0; i < listString.size() ; i++) {
+        for (int i = 0; i < listString.size(); i++) {
             System.out.println(listString.get(i));
 
         }
@@ -114,7 +112,6 @@ public class CustomArrayListTest {
         listString.add(2, "three");
 
 
-
         listString.set(1, "wtf");
         String newEl = listString.get(1);
 
@@ -126,7 +123,6 @@ public class CustomArrayListTest {
     @Test
     //////test define speed add to the end list
     public void when1mlnElemThenOk() {
-
 
 
         List<String> listString = new CustomArrayList();
@@ -183,7 +179,7 @@ public class CustomArrayListTest {
     // -----------------------------------------------------------------------------------------------------------
     public void measureAddInEndList(List<String> listString) {
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < 1_000_000 ; i++) {
+        for (int i = 0; i < 1_000_000; i++) {
             listString.add("1");
         }
         long finishTime = System.currentTimeMillis();
@@ -196,7 +192,7 @@ public class CustomArrayListTest {
 
     public void measureAddInCentrList(List<String> listString) {
         long startTime = System.currentTimeMillis();
-        for (int i = 500_000; i < 500_100 ; i++) {
+        for (int i = 500_000; i < 500_100; i++) {
             listString.add(i, "2");
         }
 
@@ -214,7 +210,7 @@ public class CustomArrayListTest {
 
     public void measureAddInStartList(List<String> listString) {
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < 100 ; i++) {
+        for (int i = 0; i < 100; i++) {
             listString.add(i, "2");
         }
 
@@ -231,7 +227,7 @@ public class CustomArrayListTest {
 
     public void measureRemoveElFromStartPosition(List<String> listString) {
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < 100 ; i++) {
+        for (int i = 0; i < 100; i++) {
             listString.remove(i);
         }
 
@@ -246,7 +242,7 @@ public class CustomArrayListTest {
 
     public void measureRemoveElFromEndPosition(List<String> listString) {
         long startTime = System.currentTimeMillis();
-        for (int i = 999_9999; i < 999_900 ; i--) {
+        for (int i = 999_9999; i < 999_900; i--) {
             listString.remove(i);
         }
 
@@ -256,8 +252,6 @@ public class CustomArrayListTest {
         long time = finishTime - startTime;
         System.out.println("Время удаления последних элементов листа " + time);
     }
-
-
 
 
 }

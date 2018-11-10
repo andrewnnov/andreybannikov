@@ -2,7 +2,7 @@ package ru.wayToLinkedList;
 
 import java.util.*;
 
-public class CustomLinkedList<E> implements List<E>, Deque<E> {
+public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
 
 
 
@@ -53,7 +53,7 @@ public class CustomLinkedList<E> implements List<E>, Deque<E> {
         Node<E> l = last;
         Node<E> newNode = new Node<>(l, newElement, null);
         last = newNode;
-        if(l ==null) {
+        if(l == null) {
             first = newNode;
         } else {
             l.next = newNode;
@@ -244,6 +244,32 @@ public class CustomLinkedList<E> implements List<E>, Deque<E> {
     }
 
     @Override
+    public void add(int index, E element) {
+
+        Node<E> x = getNodeOfIndex(index);
+        Node<E> next = x.next;
+        Node<E> prev = x.prev;
+        Node<E> newNode = new Node<>(prev, element, next);
+
+        if(prev == null) {
+            first = newNode;
+        } else {
+            prev.next = newNode;
+
+        }
+
+        if (next == null) {
+            last = newNode;
+        } else {
+            next.prev = newNode;
+
+        }
+
+        size++;
+
+    }
+
+    @Override
     public boolean contains(Object o) {
         return false;
     }
@@ -358,10 +384,7 @@ public class CustomLinkedList<E> implements List<E>, Deque<E> {
         return null;
     }
 
-    @Override
-    public void add(int index, E element) {
 
-    }
 
 
 
