@@ -10,7 +10,7 @@ package ru.wayToArrayList;
 
 import java.util.*;
 
-public class CustomArrayList implements List{
+public class CustomArrayList<E> implements List<E>{
 
     int defaultSize = 10;
 
@@ -25,10 +25,10 @@ public class CustomArrayList implements List{
 
     @Override
     //add element
-    public boolean add(Object o) {
+    public boolean add(E element) {
 
         growArray();
-        myArray[size++] = o;
+        myArray[size++] = element;
 
         return true;
     }
@@ -49,7 +49,7 @@ public class CustomArrayList implements List{
     //add element-------------------------------------------------------------------------------------------------------
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, E element) {
             growArray();
             System.arraycopy(myArray, index, myArray, index + 1, size - index);
             myArray[index] = element;
@@ -62,8 +62,8 @@ public class CustomArrayList implements List{
     //get ++---------------------------------------------------------------------------------------------------------------
 
     @Override
-    public Object get(int index) {
-        return myArray[index];
+    public E get(int index) {
+        return (E)myArray[index];
     }
 
    //size ++------------------------------------------------------------------------------------------------------
@@ -87,8 +87,8 @@ public class CustomArrayList implements List{
     //remove-----------------------------------------------------------------------------------------------------------------
 
     @Override
-    public Object remove(int index) {
-        Object result = myArray[index];
+    public E remove(int index) {
+        E result = (E)myArray[index];
         Object[] tmp = myArray;
         myArray = new Object[tmp.length - 1];
         System.arraycopy(tmp, 0, myArray, 0, index );
@@ -102,10 +102,10 @@ public class CustomArrayList implements List{
     //set----------------------------------------------------------------------------------------------------------
 
     @Override
-    public Object set(int index, Object element) {
-        Object result = myArray[index];
+    public E set(int index, E element) {
+        E result = (E)myArray[index];
 
-         return myArray[index] = element;
+         return (E) (myArray[index] = element);
 
     }
 
