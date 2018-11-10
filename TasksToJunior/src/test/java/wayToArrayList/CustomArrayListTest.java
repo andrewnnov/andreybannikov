@@ -17,6 +17,8 @@ public class CustomArrayListTest {
         List<String> listString = new CustomArrayList();
 
 
+
+
         assertEquals(true, listString.add("wow"));
 
         assertEquals(1, listString.size());

@@ -20,6 +20,26 @@ public class CustomLinkedListTest {
 
     }
 
+    @Test
+    //////test add+++
+    public void whenAddElementIndexThenListAddNewElement() {
+        List<String> listString = new CustomLinkedList();
+        listString.add("1");
+        listString.add("2");
+        listString.add("3");
+        listString.add("4");
+        listString.add("5");
+
+        listString.add(0, "789");
+
+        //assertEquals(6, listString.size());
+
+
+       assertEquals("789", ((CustomLinkedList<String>) listString).get(0));
+
+    }
+
+
 
 
     @Test
@@ -97,6 +117,39 @@ public class CustomLinkedListTest {
         long time = finishTime - startTime;
         System.out.println("Время добавления миллиона эллементов " + time);
     }
+
+    @Test
+
+    public void whenAddElemToCentrListThenReturnTime() {
+
+        List<String> listString = new CustomLinkedList<>();
+        List<String> listStringJDK = new LinkedList<>();
+
+        for (int i = 0; i < 1_000_000; i++) {
+            listString.add("1");
+            listStringJDK.add("1");
+        }
+
+
+        measureAddElToCentrPosition(listString);
+        measureAddElToCentrPosition(listStringJDK);
+    }
+
+    public void measureAddElToCentrPosition(List<String> listString) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 500_000; i < 500_100; i++) {
+            listString.add(i, "new element");
+        }
+
+
+        long finishTime = System.currentTimeMillis();
+
+        long time = finishTime - startTime;
+        System.out.println("Время добавление элемента в центр листа " + time);
+    }
+
+
+
 
 
     @Test

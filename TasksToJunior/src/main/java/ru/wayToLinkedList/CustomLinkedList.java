@@ -2,7 +2,7 @@ package ru.wayToLinkedList;
 
 import java.util.*;
 
-public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
+public class CustomLinkedList<E> implements List<E>, Deque<E> {
 
 
 
@@ -37,7 +37,16 @@ public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
     }
 
     @Override
-    public void addFirst(E e) {
+    public void addFirst(E element) {
+
+        Node<E> f = first;
+        Node<E> newNode = new Node<>(null, element, f);
+        first = newNode;
+        if (f == null)
+            last = newNode;
+        else
+            f.prev = newNode;
+        size++;
 
     }
 
@@ -60,27 +69,9 @@ public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
         }
         size++;
         return true;
-
-//        if(size == 0) {
-//            Node<E> newNode = new Node<>(null, newElement, null);
-//            first = newNode ;
-//            //last = newNode;
-//        }
-//        if(size == 1) {
-//            Node<E> newNode = new Node<>(first, newElement, null);
-//            last = newNode;
-//        }
-//
-//        if(size > 1) {
-//            Node<E> newNode = new Node<>(last, newElement, null);
-//            last = newNode;
-//        }
-//
-//        size++;
-//        return true;
     }
 
-    //add first element
+    //get first element
 
     @Override
     public E getFirst() {
@@ -91,7 +82,7 @@ public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
         return f.item;
     }
 
-    //add last element
+    //get last element
 
     @Override
     public E getLast() {
@@ -106,10 +97,13 @@ public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
   // Empty or not list
     @Override
     public boolean isEmpty() {
-        Node<E> f = first;
-        if(f == null) {
-            return true;
-        }  else return false;
+
+        boolean result = false;
+        if(size == 0) {
+            result = true;
+        }
+
+        return result;
 
     }
 
@@ -187,25 +181,6 @@ public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
 
         x.item = null;
         size--;
-
-//        if(size == 0) {
-//            System.out.println("list is empty");
-//        }
-//        if (size == 1) {
-//            x.item = null;
-//            size--;
-//        }
-//        if(size > 1) {
-//            prev.next = next;
-//            x.prev = null;
-//
-//            next.prev = prev;
-//            x.next = null;
-//
-//            x.item = null;
-//            size--;
-//        }
-
        return element;
 
     }
@@ -246,26 +221,31 @@ public class CustomLinkedList<E> implements List<E>, Deque<E>, Queue<E> {
     @Override
     public void add(int index, E element) {
 
+            if(size == 0) {
+                addFirst(element);
+            }
+
         Node<E> x = getNodeOfIndex(index);
-        Node<E> next = x.next;
-        Node<E> prev = x.prev;
-        Node<E> newNode = new Node<>(prev, element, next);
 
-        if(prev == null) {
-            first = newNode;
-        } else {
-            prev.next = newNode;
+            if(index == size) {
+                addLast(element);
+            } else {
+                Node<E> prev = x.prev;
+                Node<E> newNode = new Node<>(prev, element, x);
 
-        }
+                x.prev = newNode;
 
-        if (next == null) {
-            last = newNode;
-        } else {
-            next.prev = newNode;
+                if(prev == null) {
+                    first = newNode;
+                } else {
+                    prev.next = newNode;
+                }
+                size++;
+            }
 
-        }
 
-        size++;
+
+
 
     }
 
