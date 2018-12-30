@@ -21,9 +21,9 @@ public class HashTable {
         for (int j = 0; j < arraySize ; j++) {
 
             if(hashArray[j] != null) {
-                System.out.println(hashArray[j].getKey() + " ");
+                System.out.print(hashArray[j].getKey() + " ");
             }else {
-                System.out.println("** ");
+                System.out.print("** ");
             }
             System.out.println("");
         }
